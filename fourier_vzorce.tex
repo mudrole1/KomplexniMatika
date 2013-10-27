@@ -1,0 +1,114 @@
+\chapter{Fourierova transformace}
+
+\section*{Potrebne vzorce}
+
+\subsection*{Prima a inverzni Fourierova transformace}
+\begin{equation}
+\label{eq:definice}
+\hat{f}(p) = \int_{-\infty}^\infty f(t) e^{-jpt} dt \; ; p \in R ; \; \operatorname{definice}
+\end{equation}
+
+\begin{equation}
+\label{eq:inv_ttop}
+\check{f}(p) = \frac{1}{2\pi}\int_{-\infty}^{\infty} f(t) e^{jpt} dt \; ; \operatorname{inverzni}
+\end{equation}
+(\textit{pozn.: Za definicni obor povazujeme mnozinu vsech p, pro ktere existuji prislusne integraly}).
+
+Mezi primou a inverzni Fourierovou transformaci plati vztah:
+\begin{equation}
+\label{eq:pain}
+\hat{f}(p) = 2\pi \check{f}(-p)
+\end{equation}
+
+Postacujici podminka pro existenci Fourierovy transformace: 
+\begin{equation}
+\int_{-\infty}^\infty |f(t)|dt < \infty
+\end{equation}
+
+\subsection*{Fourierovy obrazy racionalnich funkci - aplikace reziduove vety:}
+\begin{equation}
+\label{eq:rez}
+\hat{f}(p)=\int_{-\infty}^{\infty} \frac{P(t)}{Q(t)}e^{-jpt}dt = \frac{2 \pi j}{|p|}\sum \operatorname{res}_z R(z)e^{jz}
+\end{equation}
+(\textit{pozn.: u Fourierovy transformace pouzijeme pouze ta rezidua, ktera maji kladnou imaginarni slozku!})
+
+Pokud Q ma pouze realne koreny, pak $R(z)=\frac{P(z)}{Q(z)}$, nebo-li namisto $t$ dosadime z. Rezidua zname, jsou to koreny, ktere jsme urcili.
+ 
+Pokud Q nema realne koreny, pak
+\begin{equation}
+\label{eq:rac_imag}
+R(z)=\frac{P(-\frac{z}{p})}{	Q(-\frac{z}{p})}
+\end{equation} 
+a musime urcite rezidua.
+
+\subsection*{Veta o inverzni Fourierove transformaci:}
+\begin{equation}
+\label{eq:invF}
+f(t) = \frac{1}{2\pi}\int_{-\infty}^{\infty} \hat{f}(p)e^{jpt}dp
+\end{equation}
+
+\subsection*{Vzorce pro upravy funkci}
+
+\begin{equation}
+\label{eq:p_vzoru}
+F\{f(t-a)\} = e^{-jpa} \hat{f}(p) \; ; \operatorname{posun\; ve \; vzoru}
+\end{equation}
+
+\begin{equation}
+\label{eq:zm_meritka}
+F\{f(at)\} = \frac{1}{|a|}\hat{f}\left(\frac{p}{a}\right), \; a \neq 0 \; ; \operatorname{zmena \; meritka}
+\end{equation}
+
+\begin{equation}
+\label{eq:konjug}
+F\{\overline{f(-t)}\} = \overline{\hat{f}(p)}\; ; \operatorname{pravidlo \; konjugace}
+\end{equation}
+Symbol $\overline{a}$ znamena komplexne sdruzene cislo, tedy pokud $a=x+jy$, $\overline{a}=x-jy$
+
+\begin{equation}
+\label{eq:p_obrazu}
+F\{e^{jat}\cdot f(t) \} = \hat{f}(p-a) \; ; \operatorname{posun \; obrazu}
+\end{equation}
+
+\begin{equation}
+\label{eq:der_obr}
+F\{t\cdot f(t)\}(p) = j\frac{d}{dp}\hat{f}(p) \; ; \operatorname{derivace \; obrazu}
+\end{equation}
+
+Pokud f(t) je spojite diferenciovatelna fce a $f, f' \in L^1(R)$, pak:
+\begin{equation}
+\label{eq:obr_derivace}
+\begin{array}{rcl}
+F\{ f'(t)\} & = & jp\hat{f}(p)\; ; \operatorname{obraz \; derivace}\\
+F\{ f^{(n)}(t) \} & = & (jp)^n \hat{f}(p)\\
+\end{array}
+\end{equation} 
+
+Konvoluce:
+\begin{equation}
+\label{eq:konvoluce}
+\begin{array}{rcl}
+(f*g) & =& \int_{-\infty}^{\infty} f(s)g(t-s)ds \; ; \operatorname{definice \; konvoluce}\\
+\hat{h}(p)&  = & \hat{f}(p)\cdot \hat{g}(p) \; ; \operatorname{obraz \; konvoluce} \\
+\end{array}
+\end{equation}
+
+
+\subsection*{Uzitecne vzorce navic:}
+
+Funkce $f(t) = e^{-t^2}$ ma Fourieruv obraz:
+\begin{equation}
+\label{eq:ena2}
+\hat{f}(p)=\int_{-\infty}^\infty e^{{-t}^2}\cdot e^{-jpt}dt = \sqrt{\pi}e^{-\frac{p^2}{4}}
+\end{equation}
+Funkce $f(t) = e^{-at^2}$ ma Fourieruv obraz:
+
+\begin{equation}
+\label{eq:aena2}
+\hat{f}(p)=\int_{-\infty}^\infty e^{-at^2}\cdot e^{-jpt}dt = \frac{\sqrt{\pi}}{\sqrt{a}}e^{-\frac{p^2}{4a}}
+\end{equation}
+Funkce $f(t) = e^{-a|t|}$
+\begin{equation}
+\label{eq:enaabs}
+\hat{f}(p)=\frac{2a}{p^2+a^2}
+\end{equation}

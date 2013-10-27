@@ -1,0 +1,37 @@
+\documentclass[a4paper,12pt,openany,oneside]{report}
+
+%\def\clinks{false}
+%\def\releaseDocVar{false} %TODO set to yes for the release
+
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[]{geometry}
+\geometry{vcentering,pdftex,left=2cm,right=2cm,papersize={210mm,297mm},total={151mm,251mm},includefoot,includehead,hmarginratio=24:24}
+
+
+\pagestyle{plain}
+\makeatletter
+\renewcommand\thesubsection{\thesection.\@arabic\c@subsection}
+\renewcommand\thesubsubsection{\thesubsection.\@arabic\c@subsubsection.}
+\makeatother
+
+%\SetKwInput{KwIn}{Vstup}
+%\SetKwInput{KwOut}{Výstup}
+
+\begin{document}
+\pagestyle{empty}
+%\tableofcontents
+
+\newpage
+\input komplexni_c.tex
+\input fourier_vzorce.tex
+\input fourier.tex
+\input fourier2.tex
+
+%\clearpage
+%\bibliographystyle{plain}
+%\bibliography{thesis}
+
+
+\end{document}

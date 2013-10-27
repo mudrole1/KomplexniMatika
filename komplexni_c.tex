@@ -1,0 +1,393 @@
+\chapter{Komplexni cisla}
+
+\section*{Vzorce}
+
+\subsubsection*{Tri tvary komplexniho cisla:}
+\begin{enumerate}
+  \item kartezsky $z=x+jy$
+  \item goniometricky $z=|z|(\operatorname{cos}(\varphi)+j\operatorname{sin}(\varphi))$, kde 
+  \begin{itemize}
+    \item $z|$ je absolutni hodnota, oznacuje velikost a spocte se: $|z|=\sqrt{x^2+y^2}$, nebo take $|z|=\sqrt{z\cdot \bar{z}}$
+    \item $\operatorname{cos}(\varphi)=\frac{Re\{z\}}{|z|} = \frac{x}{|z|}$
+    \item $\operatorname{sin}(\varphi) = \frac{Im\{z\}}{|z|} = \frac{y}{|z|}$
+    \item $\operatorname{tan}(\varphi) = \frac{\operatorname{sin}(\varphi)}{\operatorname{cos}(\varphi)}=\frac{Im\{z\}}{Re\{z\}}$
+    \item $\varphi$ tez oznacovan jako argument $arg_z$: $\varphi = \operatorname{arctan}\left( \frac{Im\{z\}}{Re\{z\}}\right)$
+    \item \textit{pozn.: tyto rovnice vychazi z jednoduche trojuhelnikove zavislosti, kde x,y jsou odvesny a $|z|$ je prepona. Uhel $\varphi$ je sviran mezi odvesnou x a preponou.}
+  \end{itemize}
+  \item exponencialni $z=|z|e^{j\varphi}$, kde $|z|$, $\varphi$ se spocte stejne jako v predchozim bode
+\end{enumerate}
+
+\subsubsection*{\label{sec:go_vz}Uzitecne vzorce pro praci s  goniometrickymi funkcemi}
+
+Souctove vzorce
+\begin{itemize}
+\item $\operatorname{sin}(x+y)=\operatorname{sin}(x)\operatorname{cos}(y)+\operatorname{cos}(x)\operatorname{sin}(y)$
+\item $\operatorname{sin}(x-y)=\operatorname{sin}(x)\operatorname{cos}(y)-\operatorname{cos}(x)\operatorname{sin}(y)$
+\item $\operatorname{cos}(x+y)=\operatorname{cos}(x)\operatorname{cos}(y)-\operatorname{sin}(x)\operatorname{sin}(y)$
+\item $\operatorname{cos}(x-y)=\operatorname{cos}(x)\operatorname{cos}(y)+\operatorname{sin}(x)\operatorname{sin}(y)$
+\end{itemize}
+
+\subsubsection*{Komplexne sdruzene cislo}
+$\bar{z}$ oznacuje konjugaci, nebo-li cislo komplexne sdruzene. Pokud $z=x+jy$, pak $\bar{z}=x-jy$. Plati take:
+$$\overline{zw}=\bar{z}\bar{w}$$
+$$Re\{z\} = \frac{z+\bar{z}}{2}$$
+$$Im\{z\} = \frac{z-\bar{z}}{2j}$$
+
+\subsubsection*{Matematicke operace nad komplexnimi cisly}
+\begin{itemize}
+\item scitani je jako posun v rovine
+\item nasobeni je otoceni o uhel $\varphi$ kolem pocatku, a pak stejnolehlost se stredem v pocatku a koeficientem $|a|$
+\item deleni je otoceni o uhel $-\varphi$ a stejnolehlost s $\frac{1}{|a|}$
+\item \textbf{porovnavani (tedy $z>w$) neni u komplexnich cisel definovano!}
+\end{itemize}
+
+\subsubsection*{Metrika bodu}
+Z trojuhelnikove zavislost realne, imaginarni a absolutni hodnoty a zpusobu scitani dvou komplexnich cisel plyne nasledujici metrika bodu 
+\begin{itemize}
+\item $|Re\{z\}|,|Im\{z\}| \leq |z|$
+\item $|z+w| \leq |z| + |w|$
+\item $|z+w| \geq ||z|-|w||$
+\item $|z| \leq |Re\{z\}|+|Im\{z\}|$
+\end{itemize}
+
+\subsubsection{Komplexni jednotka}
+Tak se oznacuje komplexni cislo s $|z|=1$ a libovolnym uhlem, tedy takove komplexni cislo lezi kdekoliv na jednotkove kruznici.
+
+\subsubsection*{Moivrova veta a binomicka rovnice}
+Moivrova veta rika, ze:
+\begin{equation}
+\label{eq:moivrova}
+z^n = |z|^n (\operatorname{cos}(n\varphi)+j\operatorname{sin}(n\varphi))
+\end{equation}
+Binomicka rovnice se pouze na nalezeni takoveho komplexniho cisla $a$, pro ktere plati:
+\begin{equation}
+\label{eq:binomicka}
+z^n = a
+\end{equation}
+\textbf{pozor:}k vypoctenemu uhlu musime vzdy pridat $2\pi k$, abychom zajistili periodicnost
+
+\subsubsection*{Geometrie}
+Rovnice kruznice:
+\begin{equation}
+\label{eq:kruznice}
+Az\cdot \bar{z}+\bar{a}z+a\bar{z}+C = 0; \; A \neq 0,\; C \in R; \; a\bar{a}-AC >0
+\end{equation}
+Z teto rovnice take muzeme ziskat kanonicky tvar:
+\begin{equation}
+\label{eq:kanonicky}
+|z+\frac{a}{A}|=\sqrt{\frac{a\bar{a}-AC}{A^2}}
+\end{equation}
+Rovnice primky, tez osa dvou bodu
+\begin{equation}
+\label{eq:primka}
+\bar{a}z+a\bar{z}+C=0; \; C\in R
+\end{equation}
+Apolloniovy kruznice: $\alpha,\; \beta$ jsou body lezici na jedne primce. Jeden lezi uvnitr kruznice, druhy vne.
+\begin{equation}
+\label{eq:apollo}
+\frac{|z-\alpha |}{|z-\beta |}=\lambda
+\end{equation}
+Pokud dosadime za $z=x+jy$ ziskame tvar:
+\begin{equation}
+\label{eq:apollo_xy}
+\left( x- \frac{\alpha_1 - \lambda^2 \beta_1}{1-\lambda^2}\right)+ \left( y - \frac{\alpha_2 - \lambda^2 \beta_2}{1-\lambda^2}\right)= r^2 
+\end{equation}
+Inverzni bod vuci primce: pouze osove sdruzeny\\
+Inverzni bod vuci kruznici:
+\begin{equation}
+\label{eq:inverzni_kr}
+|\alpha-a|\cdot |\beta - a| = r^2
+\end{equation}
+Kruhova inverze: je to zobrazeni, ktere k danemu bodu najde bod inverzni; a je stred kruznice
+\begin{equation}
+\label{eq:kruh_inverze}
+f(z)=a+\frac{r^2}{\overline{z-a}}
+\end{equation}
+Riemannove sfera:
+\begin{equation}
+\label{eq:riemann}
+x^2+y^2+\left( u- \frac{1}{2}\right)^2 = \frac{1}{4}
+\end{equation}
+Nebo take v jinem zapise:
+\begin{equation}
+\label{eq:rieamann_2}
+x^2+y^2+u^2 = u
+\end{equation}
+Rovnice sfery:
+\begin{equation}
+\label{eq:sfera}
+\Phi (x+jy) = \left[ \frac{x}{1+x^2+y^2}; \frac{y}{1+x^2+y^2};\frac{x^2+y^2}{1+x^2+y^2} \right]
+\end{equation}
+Stereograficka projekce: primku $N+t(z-N)=[t_x, t_y,1-t]$ dosadit do rovnice sfery.
+
+\newpage
+
+\section{Naleznete kartezsky tvar cisel}
+\subsection{$z=\frac{1-j}{1+j}$}
+Zlomek usmernim, tzn vynasobim ho takovym clenem, abych se zbavila komplexniho cisla ve jmenovateli. K tomu se perfektne hodi komplexne sdruzene cislo k jmenovateli, tedy nasobim clenem $\frac{\bar{z}}{\bar{z}}$
+$$z=\frac{1-j}{1+j}\cdot \frac{1-j}{1-j} =\frac{(1-j)^2}{1+1}=\frac{1-2j-1}{2}=\frac{-2j}{2}=-j$$
+
+\subsection{$z=j^n$}
+Kdyz na to pujdeme hrubou silou, tak mame:
+\begin{itemize}
+\item $n=1$: $j$
+\item $n=2$: $-1$
+\item $n=3$: $-j$
+\item $n=4$: $1$
+\item $n=5 = n\cdot n^4$: $j\cdot1 = j$
+\item $n=6$: opakuje se dale vzdy s peridou T=4
+\end{itemize}
+
+Tedy to muzeme nejak chytre zapsat. Vyuziji k tomu dalsi promenou $k=1,2,\dots $, abych vyjadrila periodu
+\begin{itemize}
+\item $j^{4k}=j$
+\item $j^{4k+1}=-1$
+\item $j^{4k+2}=-j$
+\item $j^{4k+3}=1$
+\end{itemize}
+
+\subsection{$z=\frac{(2+j)(3+j)}{1-j}$}
+
+Toto se resi opet usmernenim zlomku, opet vyuzijeme komplexne sdruzeneho cisla k jmenovateli:
+$$z=\frac{(2+j)(3+j)}{1-j}\cdot \frac{1+j}{1+j}=\frac{(6-1+5j)(1-j)}{1+1}=\frac{5+10j-5}{2}=5j$$
+
+\section{Jaka je absolutni hodnota a argument cisel:}
+\begin{itemize}
+\item $z=-1-j$; absolutni hodnota $|z|=\sqrt{(x^2+y^2)}= \sqrt{1+1}=\sqrt{2}$ nebo tez $|z|=\sqrt{z\cdot \bar{z}} = \sqrt{(-1-j)(-1+j)}=\sqrt{1+1}=\sqrt{2}$; argument (tim se mysli uhel $\varphi$): $arg_z = \varphi = \operatorname{arctan}\frac{Im\{z\}}{Re\{z\}}= \operatorname{arctan}\frac{-1}{-1} = \operatorname{arctan}(1) = \frac{\pi}{4}$; je dobre mit napsanou take tabulku pro uhly 30, 45, 60, 90 stupnu pro sin, cos, tan, cotg
+\item $z=2+6j$; absolutni hodnota $|z|=\sqrt{2^2+6^2}=\sqrt{4+36}=\sqrt{40}=\sqrt{4\cdot 10}=2\sqrt{10}$; zde jsem to castecne odmocnila - rozlozila jsem cislo 40 na nasobeni takovych clenu, kde jeden z nich dokazi odmocnit na cele cislo. Argument $arg_z = \operatorname{arctan}\frac{6}{2}=\operatorname{arctan}(3)$; toto nevede na zadny cely uhel, muzeme to nechat vyjadrene takto.
+\item $z=-2+6j$, absolutni hodnota je stejna jako v predchozim prikladu. Komplexni cislo lezi v II. kvadrantu (zaporna osa x, kladna osa y), takovy uhel se promita na zapornou cast funkce tan, tedy argument je $arg_z = - \operatorname{arctan}(3)$
+\item ostatni obdobne
+\end{itemize}
+
+\section{Pomoci matematicke indukce dokazte Moivreovu formuli $(\operatorname{cos}(\varphi)+j\operatorname{sin}(\varphi))^n=\operatorname{cos}(n\varphi)+j\operatorname{sin}(n\varphi)$}
+
+Matematicka indukce znamena, ze musime vzorec dokazat pro $n=1$ nejprve, a dale pro $n+1$, kde ale predpokladam, ze to plati pro $n$. Kdyz mi vyjde co ocekavam, muj predpoklad pro $n$ byl platny a tudiz mam hotovo.
+
+ $n=1$ je reseni primocare, protoze rovnice ze zadani se proste rovnaji. Pro pripad $n+1$ vyuzijeme vlastnosti, ze $(a+b)^{n+1}=(a+b)^n \cdot (a+b)$, tedy v nasem pripade $$(\operatorname{cos}(\varphi)+j\operatorname{sin}(\varphi))^{n+1} = (\operatorname{cos}(\varphi)+j\operatorname{sin}(\varphi))^{n}\cdot (\operatorname{cos}(\varphi)+j\operatorname{sin}(\varphi)) = $$
+ Jak rikam, predpokladame, ze pro $^n$ vzorec ze zadani plati, tedy ho pouzijeme:
+ $$= (\operatorname{cos}(n\varphi)+j\operatorname{sin}(n\varphi)) \cdot (\operatorname{cos}(\varphi)+j\operatorname{sin}(\varphi)) = $$
+ A ted zavorky roznasobime:
+ $$ = \operatorname{cos}(n\varphi)\cdot \operatorname{cos}(\varphi)+j\operatorname{sin}(n\varphi)\cdot \operatorname{cos}(\varphi) + j\operatorname{sin}(\varphi)\cdot \operatorname{cos}(n\varphi) - \operatorname{sin}(n\varphi)\cdot \operatorname{sin}(\varphi) $$
+ Ted aplikujeme ruzne souctove goniometricke vzorce, viz vypsane vzorce v uvodu, a to konkretne tyto dva:
+  $$\operatorname{cos}(n\varphi)\cdot \operatorname{cos}(\varphi) - \operatorname{sin}(n\varphi)\cdot \operatorname{sin}(\varphi) = \operatorname{cos}(n\varphi + \varphi)$$
+  $$j\operatorname{sin}(n\varphi)\cdot \operatorname{cos}(\varphi) + j\operatorname{sin}(\varphi)\cdot \operatorname{cos}(n\varphi) = j \operatorname{sin}(n\varphi+\varphi)$$
+  
+  Pokud je aplikujeme, dostavame (na leve strane mame porad to, co dokazujeme):
+  $$(\operatorname{cos}(\varphi)+j\operatorname{sin}(\varphi))^{n+1} =\operatorname{cos}(n\varphi + \varphi)+j \operatorname{sin}(n\varphi+\varphi) = \operatorname{cos}((n+1)\varphi)+j\operatorname{sin}((n+1)\varphi) $$
+  Coz presne odpovida tomu, co jsme ocekavali. Mame dokazano :)
+ 
+ \section{Vypoctete vsechny hodnoty nasledujicich odmocnin}
+ a) $\sqrt{1-j}$
+ Cislo pod odmocninou oznacme napr. $z=1-j$. Proto cislo urcime modul (velikost) a argument (uhel). Tedy:
+ $$|z|=\sqrt{1+1} = \sqrt{2}$$
+$$\varphi=\operatorname{arg}(z) = \operatorname{arctg}\frac{-1}{1} = -\frac{\pi}{4}$$ 
+  Dale celou odmocninu $\sqrt{z}$ dame rovnu nejake dalsi promene, treba $a$, tu chceme urcit.
+ $$\sqrt{1-j}= a$$
+ Odmocniny ale resit neumime, prevedeme to teda umocnenim na:
+ $$(1-j) = a^2$$
+ To prevedeme na goniometricky tvar komplexniho cisla:
+ $$|z|\cdot (\operatorname{cos}(\varphi)+j \operatorname{sin}(\varphi)) = |a|^2 \cdot  (\operatorname{cos}(2\psi)+j \operatorname{sin}(2\psi))$$
+ A prostym porovnanim clenu na leve a prave strane ziskame:
+ $$|z|=|a|^2|$$
+ $$a=\sqrt{|z|} = \sqrt{\sqrt{2}} = \sqrt[4]{2}$$
+ U uhlu musime mit jeste napameti periodicnost a pridat $2k\pi$ k pokryti vsech existujicich uhlu a ne jen tech od $<0, 360>$, tedy:
+ $$\varphi+2k\pi = 2\psi$$
+ $$\psi = \frac{\varphi+2k\pi}{2}$$
+ Takze napriklad pro $k=0$:
+ $$\psi_0 = \frac{-\frac{\pi}{4}}{2} = -\frac{/pi}{8}$$
+ Pro $k=1$
+ $$\psi_1 = \frac{-\frac{\pi}{4}+2\pi}{2}=\frac{\frac{-\pi+8\pi}{4}}{2}=\frac{7\pi}{8}$$
+ A tak dale... 
+ 
+ b)-d) obdobne
+ 
+ \section{Najdete vsechna reseni rovnice}
+ a) $z^4=-1$
+ Postup obdobny jako v predchozim prikladu. V prvnim kroku prevedeme na goniometricky tvar a porovname cleny:
+ $$|z|^4\cdot (\operatorname{cos}(4\varphi)+j \operatorname{sin}(4\varphi)) = |-1|\cdot (\operatorname{cos}(\pi)+j \operatorname{sin}(\pi))$$
+ $$|z|^4 = 1$$
+ $$z = \sqrt[4]{1} = 1$$
+ $$4\varphi = \pi+2k\pi$$
+ $$\varphi = \frac{\pi (1+2k)}{4}$$
+ Tedy:
+ $$\psi_0 = \frac{\pi}{4}, \psi_1 = \frac{3\pi}{4}, \dots$$
+ 
+Poznamka: uhel $2k\pi$ pridavame na opacnou stranu rovnice, nez co chceme vypocitat. Tady jsme chteli vypocitat $\varphi$, proto jsme to pridali napravo.
+
+b) $z^7-z = 0$, zde nejprve musime upravit a vytknout jedno $z$:
+$$z(z^6-1)= 0$$
+coz se nam rozpadne na dve reseni:
+$z = 0$ a $z^6 -1 = 0$. Prvni je vyreseno, druhe prevedeme na:
+$$z^6 = 1$$
+a resime stejne jako v predchozim bodu. Nesmime vsak u reseni zapomenout i na to extra $z=0$!
+
+\section{Overte, ze plati:}
+\subsection*{a) $|z_1\cdot z_2| = |z_1|\cdot |z_2|$}
+Nejprve vypoctu levou stranu:
+$$|z_1 \cdot z_2| = |(x_1+j y_1)\cdot (x_2+j y_2)| = |x_1 x_2 +j x_1 y_2 +j x_2 y_1 - y_1 y_2|=$$
+V dalsim kroku k sobe dam realnou a imiginarni cast (abych v tom videla komplexni cislo).
+$$=|(x_1 x_2 - y_1 y_2)+j(x_1 y_2 +x_2 y_1)|=$$
+Velikost komplexniho cisla je $\sqrt{re^2 + im^2}$, tento vzorec aplikuje i zde:
+$$=\sqrt{(x_1 x_2 - y_1 y_2)^2+(x_1 y_2+ x_2 y_1)^2}=$$
+kdyz to roznasobim dle vzorce $(a-b)^2 = a^2 -2ab +b^2$ ziskam:
+$$=\sqrt{(x_1^2 x_2^2 -2 x_1 x_2 y_1 y_2 + y_1^2 y_2^2)+(x_1^2 y_2^2 +2 x_1 x_2 y_1 y_2 +x_2^2 y_1^2)}=$$
+Cleny $-2 x_1 x_2 y_1 y_2$ a $-2 x_1 x_2 y_1 y_2$ se odectou, zbyde tedy jen:
+
+$$=\sqrt{x_1^2 x_2^2 +y_1^2 y_2^2 + x_1^2 y_2^2 + x_2^2 y_1^2}$$
+To je uprava pro levou stranu. Pro pravou stranu plati:
+$$|z_1|\cdot |z_2| = \sqrt{x_1^2+y_1^2}\cdot \sqrt{x_2^2 +y_2 ^2} = $$
+Protoze je mezi odmocninami nasobeni, muzu to dat pod jednu odmocninu dle vzorce $\sqrt{a}\cdot \sqrt{b}=\sqrt{a\cdot b}$, tedy:
+$$=\sqrt{(x_1^2+y_1^2)\cdot (x_2^2 +y_2 ^2)} = $$
+Roznasobim a ziskam:
+$$=\sqrt{x_1^2 x_2^2 +y_1^2 y_2^2 + x_1^2 y_2^2 + x_2^2 y_1^2}$$
+Coz je vysledek prave strany a presne se shoduje s levou. Dokazali jsme tedy, ze rovnost plati.
+
+\subsection*{b) $\lvert \frac{z_1}{z_2} \rvert = \frac{|z_1|}{|z_2|}$}
+Opet nejprve pro levou stranu, postupujeme stejne, komplexni cislo rozepiseme na realnou a imiginarni cast a upravujeme do zblbnuti :)
+$$\lvert \frac{x_1 + j y_1}{x_2 +j y_2} \rvert = $$
+zde se hodi usmernit, tedy zbavit se komplexniho cisla ve jmenovateli. To udelam vynasobenim zlomkem, ktery ma komplexne sdruzene cislo jak v citateli, tak jmenovateli, neboli:
+$$ = \lvert \frac{x_1 + j y_1}{x_2 +j y_2} \cdot \frac{x_2 -j y_2}{x_2 -j y_2} \rvert = \lvert \frac{(x_1 + j y_1)(x_2 -j y_2)}{x_2^2 - j^2 y_2^2} \rvert =$$
+A pokracujeme v roznasobeni a upravach, rovnou preskupim cleny, aby realne a imaginarni casti byly u sebe:
+$$= \lvert \frac{(x_1 x_2+y_1 y_2)+j(x_1 y_2 - x_2 y_1)}{x_2^2 + y_2^2} \rvert= \lvert \frac{(x_1 x_2+y_1 y_2)}{x_2^2 + y_2^2}+j \frac{x_1 y_2 - x_2 y_1}{x_2^2 + y_2^2} \rvert = $$
+Pro nazornost jsem zlomek roztrhla, aby byla videt realne a imaginarni cast dobre. Dale vypocteme velikost:
+$$=\sqrt{\frac{(x_1 x_2+y_1 y_2)^2}{(x_2^2 + y_2^2)^2}+\frac{(x_1 y_2 - x_2 y_1)^2}{(x_2^2 + y_2^2)^2}} = $$
+Roznasobim a ziskam:
+$$= \sqrt{\frac{x_1^2 x_2^2 +2 x_1 x_2 y_1 y_2 + y_1^2 y_2^2}{(x_2^2 + y_2^2)^2}+\frac{x_1^2 y_2^2 -2 x_1 x_2 y_1 y_2 +x_2^2 y_1^2}{(x_2^2 + y_2^2)^2}}=$$
+Prevedu na spolecny jmenovatel, to je zde jednoduche, protoze jmenovatele jsou stejne. Nektere cleny v citateli se odectou.
+$$=\sqrt{\frac{x_1^2 x_2^2 +y_1^2 y_2^2 + x_1^2 y_2^2 + x_2^2 y_1^2}{(x_2^2 + y_2^2)^2}}=$$
+Coz z prvniho a ctvrteho clenu muzu vytknout $x_2^2$, z druheho a tretiho $y_2^2$, tedy:
+$$=\sqrt{\frac{x_2^2(x_1^2 +y_1^2)+y_2^2(x_1^2+y_1^2)}{(x_2^2 + y_2^2)^2}}=$$
+Ted lze vytknout jeste $(x_1^2+y_1^2)$, tedy:
+$$=\sqrt{\frac{(x_1^2+y_1^2)(x_2^2+y_2^2)}{(x_2^2 + y_2^2)^2}}=$$
+A muzeme jeste zkratit druhou zavorku s jmenovatele, ziskame tedy:
+$$=\sqrt{\frac{(x_1^2+y_1^2)}{(x_2^2 + y_2^2)}}$$
+Tim upravy pro levou stranu konci.
+
+Upravy pro pravou stranu jsou jednodusi:
+$$\frac{|z_1|}{|z_2|}=\frac{|x_1+j y_1|}{|x_2+j y_2|} = \frac{\sqrt{x_1^2+y_1^2}}{\sqrt{x_2^2+y_2^2}} = $$
+Protoze je mezi odmocnina deleni, muzeme stejne jako u nasobeni prevest pod jednu odmocninu (neplati pro scitani a odecitani!)
+$$=\sqrt{\frac{(x_1^2+y_1^2)}{(x_2^2+y_2^2)}}$$
+coz je presne to stejne, co nam vyslo pro levou stranu. Mame hotovo a dokazano.
+
+\subsection*{c)$\overline{z_1+z_2} = \overline{z_1}+\overline{z_2}$}
+Opet upravime nejdrive levou stranu:
+$$\overline{(x_1+j y_1)+(x_2+j y_2)} =$$
+Jen preskupim cleny, realne k sobe, imaginarni k sobe, abych lepe videla nove komplexni cislo:
+$$=\overline{(x_1+x_2)+j(y_1+y_2)}=$$
+Cara nad vyrazem znamena konjugaci, komplexne sdruzene cislo. Tedy otoceni znameka pred imaginarni slozkou, tedy:
+$$=(x_1+x_2) - j(y_1+y2)$$
+Pro pravou stranu:
+$$\overline{x_1+jy_1}+\bar{x_2+jy_2} = x_1 - jy_1 + x_2 - jy_2 = (x_1+x_2)-j(y_1+y_2)$$
+Coz je presne jako leva strana, mame hotovo.
+
+\subsection*{d)$\overline{z_1\cdot z_2} = \overline{z_1}\cdot \overline{z_2}$}
+
+Postup podobny jako vyse, pro levou stranu:
+$$\overline{(x_1+jy_1)\cdot(x_2+jy_2)} = \overline{x_1 x_2 + jx_1 y_2 +jx_2 y_1+y_1 y_2} = \overline{(x_1 x_2 +y_1 y_2) + j (x_1 y_2+ x_2 y_1)} = $$ 
+$$ = (x_1 x_2 +y_1 y_2) - j (x_1 y_2+ x_2 y_1)$$
+Pro pravou stranu:
+$$\overline{x_1+j y_1}\cdot \overline{x_2+j y_2} = (x_1 - jy_1)\cdot (x_2 - jy_2) = x_1 x_2 - jx_1 y_2 -jx_2 y_1+y_1 y_2= (x_1 x_2 +y_1 y_2) - j (x_1 y_2+ x_2 y_1)$$
+Coz presne odpovida leve strane.
+
+\subsection*{e) $|z_1+z_2| \leq |z_1| + |z_2|$}
+Tentokrat to budu resit jako rovnici, tedy obe strany naraz. Kdybych to resila zvlast, moc daleko bych se nedostala.(samozrejme jsem to zkusila nejprve resit zvlast a narazila :) ) Kdyz to budeme resit dohromady, veci se nam vykrati.
+$$|(x_1+jy_1 + x_2 jy_2| \leq |x_1+jy_1| + |x_2 + jy_2|$$
+$$\sqrt{(x_1+x_2)^2+(y_1+y_2)^2} \leq \sqrt{x_1^2 +y_1^2}+\sqrt{x_2^2 + y_2^2}$$
+Chtela bych se zbavit tech odmocnin, tak to umocnim na druhou, pozor, prava strana se umocni dle vzorce $(a+b)^2 = a^2+2ab+b^2$.
+$$(x_1+x_2)^2+(y_1+y_2)^2 \leq (x_1^2 +y_1^2) + 2 \cdot \sqrt{x_1^2 +y_1^2} \cdot \sqrt{x_2^2 + y_2^2} + (x_2^2 + y_2^2)$$
+Na leve strane roznasobime co se da:
+$$x_1^2+2x_1 x_2 + x_2^2 + y_1^2 + 2y_1 y_2 + y_2^2 \leq x_1^2 +y_1^2 + 2 \cdot \sqrt{x_1^2 +y_1^2} \cdot \sqrt{x_2^2 + y_2^2} + x_2^2 + y_2^2$$
+Vykratime co se da:
+$$2 x_1 x_2 + 2 y_1 y_2 \leq 2 \cdot \sqrt{x_1^2 +y_1^2} \cdot \sqrt{x_2^2 + y_2^2} $$
+Toto muzu vydelit dvema, tzn vsechny dvojky zmizi:
+$$x_1 x_2 + y_1 y_2 \leq \sqrt{x_1^2 +y_1^2} \cdot \sqrt{x_2^2 + y_2^2} $$
+Protoze mezi odmocninami na prave strane je nasobeni, muzu to soupnout pod jednu odmocninu:
+$$x_1 x_2 + y_1 y_2 \leq \sqrt{(x_1^2 +y_1^2) \cdot (x_2^2 + y_2^2)} $$
+Ted se chci zbavit odmocniny na prave strane, zase to umocnim:
+$$(x_1 x_2 + y_1 y_2)^2 \leq (x_1^2 +y_1^2) \cdot (x_2^2 + y_2^2) $$
+Umocnim na leve strane, roznasobim na prave:
+$$x_1^2 x_2^2 + 2\cdot x_1 x_2 y_1 y_2 + y_1^2 y_2^2 \leq x_1^2 x_2^2 +x_1^2 y_2^2 + x_2^2 y_1^2 + y_1^2 y_2^2$$
+Opet pokratim co se da a ziskam:
+$$ 2\cdot x_1 x_2 y_1 y_2 \leq x_1^2 y_2^2 + x_2^2 y_1^2$$
+V tom ale porad nejak nevidim, zda to plati. Vidim v obou stranach ale cleny vzorce $(a-b)^2 = a^2-2ab+b^2$, prevedu teda levou stranu napravo napr:
+$$ 0 \leq x_1^2 y_2^2 -2\cdot x_1 x_2 y_1 y_2 + x_2^2 y_1^2$$
+$$ 0 \leq (x_1 y_2 - x_2 y_1)^2$$
+
+Na teto rovnici uz muzeme vyrok posoudit. Bud budou cleny takove, ze se presne odectou, tim padem to bude na prave strane nula a bude platit rovnost. Nebo cleny komplexnich cisel budou jine, ale diky druhe mocnine cela prava strana bude vzdy kladna, tedy vetsi nez nula. Tedy dana nerovnost plati. Mame hotovo.
+
+\section{Necht $z_1$, $z_2$, $z_3 \in \mathbb{C}$ tvori tri vrcholy rovnobezniku. Cemu se rovna cvtry vrchol $z_4$ protilehly k $z_2$?}
+
+Rovnobeznik je bud ctverec, nebo obdelnik. Kdyz si nakreslite souradny system v kartezske rovine (osa x je tvorena realnou osou, osa y je imaginarni) a zde nakreslite obdelnik (muze byt i natoceny obecne) a do jeho rohu napisete patricna komplexni cisla (nejlepe za sebou v poradi, kde zacnete nezalezi). Ja jsem zacala napriklad v levem dolnim rohu. Kdyz zacnete jinak, patricne rovnice budou trochu jine, ale vysledek stejny. Pak $z_1, z_2$ tvori jednu zakladnu, $z_3, z_4$ druhou. Obe zakladny jsou stejne velke, oznacme usecku zakladny treba "a", z analyticke matematiky se urci jako rozdil konecnych bodu, tedy:
+$$a=z_2 - z_1$$
+$$a=z_3 - z_4$$
+Z druhe rovnice vyjadrime $z_4$, to hledame a za "a" dosadime z prvni rovnice.
+$$z_4 = -(a - z_3) = -(z_2-z_1 -z_3) = -z_2 + z_1 + z_3 $$
+Preskupeni clenu jen pro krasu:
+$$z_4 = z_1 - z_2 + z_3$$
+Pozor, ve skriptech je vysledku chyba. Kdyz si udelate nejaky priklad, treba obdelnik rovnobezny s osami, bez natoceni a dosadite si zvlast hodnoty x, a zvlast hodnoty y bude vam toto reseni sedet.
+
+\section{Urcete podminku na tri tuzne body $z_1, z_2, z_3 \in \mathbb{C}$, aby lezely na primce}
+
+TODO: Vyplyva z Apolloinovy kruznice
+
+\section{Necht $z_1, z_2, z_3 \in \mathbb{C}$ jsou takove, ze $z_1 +z_2 +z_3 = 0$, $|z_1|=|z_2|=|z_3| =1$. Ukazte, ze pak nutne tvori vrcholy rovnostranneho trojuhelnika vepsaneho do jednotkove kruznice.}
+
+To, ze body lezi na jednotkove kruznici je jasne uz dano tim, ze jejich modul (velikost je jedna). Ted uz jen dokazat, ze tvori rovnostranny trojuhelnik Tady jde o obecnou vlastnost, neni dulezite konkretni ciselne reseni. Mam tri komplexni cisla, jedno z nich si tedy zvolim tak, aby velikost byla jednickova. Muzu si zvolit libovolne, nezalezi na konkretni ciselnem reseni. Tak proc si delat zivot slozitym, zvolim si:
+$z_1 = 1$ a to dosadim do rovnice:
+$$z_1 +z_2 +z_3 = 0$$
+$$1 + (x_2 + j y_2) + (x_3 +jy_3) = 0$$
+$$(x_2+x_3) +j(y_2 + y_3) = -1$$
+Porovnanim leve a prave rovnice se nam reseni rozpadne na rovnici pro realnou a imaginarni cast zvlast:
+$$x_2+x_3 = -1$$
+Takze napriklad vyjadrim $x_2$ v zavislosti na $x_3$:
+$$x_2 = -1 - x_3$$
+Pro imaginarni slozku:
+$$y_2+y_3 = 0$$
+$$y_2 = - y_3$$
+
+Pro dopocitani bodu vyuzijeme vlastnosti $|z_2| = 1$:
+$$|z_2| = 1 = \sqrt{x_2^2+y_2^2} = \sqrt{(-1-x_3)^2 + (-y_3)^2} = \sqrt{1+2x_3 + x_3^2 + y_3^2}$$
+Abychom se zbavili odmocniny, umocnime: ($1^2$ je porad 1 :) )
+$$1 = 1+2x_3 + x_3^2 + y_3^2$$
+Dale z vlastnosti $|z_3| = 1$ vime, ze $\sqrt{x_3^2 + y_3^2}=1$, tedy i $x_3^2 + y_3^2 = 1$, tuto posledni rovnici dosadime vyse a ziskame:
+$$1 = 1+2x_3 + 1$$
+$$-1 = 2x_3$$
+$$x_3 = -\frac{1}{2}$$
+Z toho muzeme dopocitat $y_3$:
+$$x_3^2 + y_3^2 = 1$$
+$$\frac{1}{4} + y_3^2 = 1$$
+$$y_3 = \sqrt{\frac{3}{4}}$$
+$$y_3 = \frac{\sqrt{3}}{2}$$
+A z toho teda konecne $x_2$ a $y_2$:
+$$x_2 = -1 - -\frac{1}{2} = -\frac{1}{2}$$
+$$y_2 = -y_3 = -\frac{\sqrt{3}}{2}$$
+
+Takze mame ted vsechny vrcholy, jeste bychom meli urcit, zda vzdalenost mezi nimi je stejna (tvori rovnostranny trojuhelnik:
+$$a_{12} = z_2 - z_1 = -\frac{1}{2}-j\frac{\sqrt{3}}{2} - 1 = -\frac{3}{2}-j\frac{\sqrt{3}}{2}$$
+$$|a_{12}| = \sqrt{\frac{9}{4}+\frac{3}{4}} = \sqrt{\frac{12}{4}} = 3$$
+$$a_{23} = z_3 - z_2 = -\frac{1}{2} + j\frac{\sqrt{3}}{2} - \left( -\frac{1}{2} -j\frac{\sqrt{3}}{2}  \right) = 0+j2\frac{\sqrt{3}}{2}$$
+$$|a_{23}| = \sqrt{0+4\frac{3}{4}} = 3$$
+$$a_{31} = z_1 - z_3 = 1 - \left( -\frac{1}{2}+j\frac{\sqrt{3}}{2} \right) = \frac{3}{2} - j\frac{\sqrt{3}}{2}$$
+$$|a_{31}| = \sqrt{\frac{9}{4}+\frac{3}{4}} = 3$$
+
+Vsechny tri strany maji stejnou velikost, tedy jsme dokazali, ze trojuhelnik je rovnostranny.
+
+\section{Popiste nasledujici mnoziny:}
+\subsection*{a) $M = \{ z \in \mathbb{C} \vert |z-j| \leq 1, Re z > 0$}
+Tyto priklady se resi nacrtem. Vzdy je dobre zacit osami (x realne, y imaginarni), jako kriz. Tedy i myslet na zapornou cast. Rovnice typu:
+$$|z-a|\leq b$$
+vyjadruji vzdy! rovnici. To je dobre si zapamatovat, bude se hodit i pozdeji. Bod $a$ udava stred kruznice, tedy v nasem pripade se nachazi na ose y v bode $1j$. Cislo b je pak polomer, v nasem pripadne 1. Kruznice tedy prochazi bodem $2j, 1+1j, 0, -1+1j$
+
+Druha podminka rika, ze $Re z > 0$, tedy jen takova komplexni cisla, jejich realna hodnota je vetsi nez nula... To znamena, ze se jedna o pravou cast od imaginarni osy (zdurazneni, tedy jak nad osou x, tak pod osou x.
+
+Pokud oba pozadavky spojime, udelame prunik, pak mnozina, kterou hledam je pouze prava polokruznice, tedy kruh prochazejici body: $2j, 1+1j, 0$ a zpet do bodu $2j$.
+
+\subsection*{b)}
+Zde je mezikruzi, rovnice $1 < |z| < 3$ se vyresi zvlast na dva pripady:
+$1<|z|$ a $|z|<3$. Arg z znamena uhel komplexniho cisla...
+
+\section{Pro ktera $z \in \mathbb{C}$ plati:}
+\subsection*{$\operatorname{Re} \frac{1}{z} = \alpha$, $\alpha \in R$}
+
+
+

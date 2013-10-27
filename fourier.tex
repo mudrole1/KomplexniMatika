@@ -1,0 +1,320 @@
+\newpage
+
+\section{Naleznete Fourieruv obraz funkce $f(t)=e^{-a|t|},a>0$}
+Vyjdeme z definice (rovnice (\ref{eq:definice})):
+$$\hat{f}(p)=\int_{-\infty}^{\infty}f(t)e^{-jpt}dt$$
+Dosadime za $f(t)$ ze zadani:
+$$\hat{f}(p)=\int_{-\infty}^{\infty}e^{-a|t|}e^{-jpt}dt$$
+Protoze mame stejny zaklad, muzeme to vynasobit. Pri nasobeni zakladu se exponenty scitaji:
+$$\hat{f}(p)=\int_{-\infty}^{\infty}e^{(-a|t|-jpt)}dt$$
+Ted se potrebujeme zbavit absolutni hodnoty u $t$, rozdelime to tedy na dva intervaly
+\begin{itemize}
+\item $t \in (-\infty,0)$
+\item $t \in <0,\infty)$
+\end{itemize}
+Na tom, kam priradime nulu nezalezi, protoze to na absolutni hodnotu nema vliv.
+Kdyz odstranujeme absolutni hodnotu pro zaporny interval, tak plati, ze:
+$$|t|=-t$$. 
+Z toho plyne, ze pro prvni interval bude integral vypadat takto:
+$$\hat{f}_1(p)=\int_{-\infty}^{0}e^{(-a(-t)-jpt)}dt=\int_{-\infty}^{0}e^{(a-jpt)t}dt$$
+Kdyz odstranujeme absolutni hodnotu pro kladny interval, tak plati, ze:
+$$|t|=t$$
+Z toho plyne, ze pro druhy interval bude integral:
+$$\hat{f}_2(p)=\int_{0}^{\infty}e^{(-a(t)-jpt)}dt=\int_{0}^{\infty}e^{-(a+jpt)t}dt$$
+Ted oba intervaly muzeme zase spojit:
+$$\hat{f}(p)=\int_{-\infty}^{\infty}e^{(-a|t|-jpt)}dt = \hat{f}_1(p)+\hat{f}_2(p)=$$ $$=\int_{-\infty}^{0}e^{(a-jpt)t}dt+ \int_{0}^{\infty}e^{-(a+jpt)t}dt$$
+A ted muzeme integrovat, musime vyuzit metody integrovani substituci:
+$$(a-jp)t=u$$
+To zderivujeme: (kdo je zmaten, at oprasi integraly z prvaku :) )
+$$(a-jp)dt=du$$
+A vytkneme dt: (tady by matikari radost nemeli, ale ja si to s chuti vydelim
+$$dt=\frac{du}{(a-jp)}$$
+Pro druhy integral musi byt substituce trochu jina:
+$$-(a+jp)t=v$$
+Zderivujeme a vytkeneme dt:
+$$dt=\frac{dv}{-(a+jp)}$$
+Ted substituci dosadime do integralu:
+$$\hat{f}(p)=\int_{-\infty}^{0}e^u\frac{du}{(a-jp)}+\int_{0}^{\infty}e^v\frac{dv}{-(a+jp)}$$
+Dostali jsme $e^{neco}$, coz je standarni vzorovy integral, zlomek je konstanta (neni tam promena u ani v), muzeme odintegrovat:
+$$\hat{f}(p)=\left[\frac{e^u}{(a-jp)}\right]+\left[\frac{e^v}{(-(a+jp)}\right]$$
+Ohledne mezi, bud je muzeme prepocitat, ale ja osobne preferuji se vratit v subsituci a dosadit za u, v originaly a pouzit puvodni meze, tedy:
+$$\hat{f}(p)=\left[\frac{e^{(a-jp)t}}{(a-jp)}\right]_{-\infty}^0+\left[\frac{e^{-(a+jp)t}}{(-(a+jp)}\right]_0^\infty$$
+A hura, muzeme dosadit, kdyz vime, ze $e^0=1$ a ze $e^{-\infty}=0$:
+$$\hat{f}(p)=\left[\frac{1}{a-jp}-0\right]+\left[0-\left(-\frac{1}{a+jp}\right)\right]$$
+A ted jen upravy, prevedeme na spolecny jmenovatel:
+$$\hat{f}(p)=\frac{a+jp+a-jp}{(a-jp)(a+jp)}=\frac{2a}{a^2-j^2p^2}$$
+A vime, ze pro komplexni jednotku j plati $j^2 = -1$, tedy vysledek:
+$$\hat{f}(p)=\frac{2a}{a^2+p^2}$$
+
+
+\newpage
+
+\section{Naleznete Fourieruv obraz funkce $f(t)=e^{-\alpha|t|}\cdot 1(t)$}
+Toto je jeste jednodussi pripad predchoziho, jelikoz jednotkovy skok $1(t)$ nam aktivuje pouze interval $t \in <0,\infty)$. Vyjdeme opet z definice (rov (\ref{eq:definice})), ale uz orizneme interval:
+$$\hat{f}(p)=\int_0^\infty e^{-\alpha t}e^{jpt}dt=\int_0^\infty e^{-(\alpha+jp)t}dt$$
+Opet pouzijeme substituci:
+$$-(\alpha+jp)t=u$$
+$$dt=\frac{du}{-(\alpha+jp)}$$
+Dostaneme integral
+$$\hat{f}(p)=\int_0^\infty e^u \frac{du}{-(\alpha+jp)}$$
+a odintegrujeme,dosadime zpet substituci a dosadime meze:
+$$\hat{f}(p)=\left[\frac{e^{-(\alpha+jp)t}}{-(\alpha+jp)}\right]_0^\infty=\left[0-\left(-\frac{1}{\alpha+jp}\right)\right]=\frac{1}{\alpha+jp}$$
+
+
+\newpage
+
+\section{\label{sec:3}Naleznete Fourieruv obraz funkce $f(t)=\frac{1}{(t^2+4)(t^2+9)}$}
+
+Funkce $f(t)$ je podilem dvou polynomu zavislych na t
+$$f(t)=\frac{P(t)}{Q(t)}$$
+Tedy muzeme vyuzit vypoctu pres reziduovou vetu, viz rovnice (\ref{eq:rez}). 
+Pro reseni potrebujeme zjistit, jake ma koreny polynom $Q(t)$, tedy dame cely jmenovatel roven nule
+$$(t^2+4)(t^2+9) = 0$$
+To se rozpada na dve casti:
+\begin{itemize}
+\item $t^2+4=0$, $t=\pm2j$
+\item $t^2+9=0$, $t=\pm3j$
+\end{itemize}
+Dulezitym zaverem je, ze $Q(t)$ nema realne koreny, a proto budeme postupovat s vyuzitim rovnice rovnice(\ref{eq:rac_imag}), kdy $-\frac{z}{p}$ dosadime za $t$:
+$$R(z)=\frac{1}{\left( \left(-\frac{z}{p} \right)^2+ 4 \right)\left( \left(-\frac{z}{p} \right)^2+ 9 \right)}$$
+Nasleduji upravy:
+$$R(z)=\frac{1}{\frac{z^2+4p^2}{p^2}\cdot \frac{z^2+9p^2}{p^2}}= \frac{p^4}{(z^2+4p^2)(z^2+9p^2)}$$
+A pro tento novy zlomek urcime rezidua (polozime jmenovatel roven 0)
+\begin{itemize}
+\item $z=\pm2pj$
+\item $z=\pm3pj$
+\end{itemize}
+Nezapominejte, ze u Fourierovy transformace nas zajimaji pouze rezidua s kladnou imaginarni slozkou, tedy v tomto pripad z=2pj a z=3pj. Za timto ucelem i pridame absolutni hodnotu k $p$, aby nam to nahodou p neotocilo. Pro prehlednost si jeste trochu upravim $R(z)$ a pouze $z^2+4p^2$ nahradim prislusnymi zavorkami.
+$$R(z)= \frac{p^4}{(z+2pj)(z-2pj)(z^2+9p^2)}$$
+Nejprve spoctu rezidua pro prehlednost. Obe rezidua maji  nasobnost 1, pouziji tedy zakladni vzorec viz predchozi kapitola.(z jmenovatele odstranime ten clen v zavorce, ktery by pro dane reziduum byl nula a zpusoboval tedy problem)
+$$\operatorname{res}_{2|p|j}R(z)e^{jz}= \lim_{z \to 2|p|j} \frac{p^4}{(z+2|p|j)(z^2+9|p|^2)}e^{jz} = $$
+Dosadim za $z$, vsimte si, ze ve jmenovateli a exponentu u $e^{jz}$ zmizi j a objevi se -, protoze $j^2=-1$
+$$=\frac{p^4}{4|p|j\cdot(-4|p|^2+9p^2)}e^{-2|p|}= \frac{p^4}{4|p|j\cdot 5p^2}e^{-2|p|}$$
+Pro potreby druheho rezidua si opet pro prehlednost napisu $R(z)$ v podobe:
+$$R(z)=\frac{p^4}{(z^2+4p^2)(z+3pj)(z-3pj)}$$
+$$\operatorname{res}_{3|p|j}R(z)e^{jz}= \lim_{z \to 3|p|j} \frac{p^4}{(z^2+4|p|^2)(z+3|p|j)}e^{jz} = $$
+$$=\frac{p^4}{-5p^2\cdot6|p|j}e^{-3|p|}$$
+Pouzijeme rovnici (\ref{eq:rac_imag})
+$$\hat{f}(p)=\int_{-\infty}^{\infty} \frac{P(t)}{Q(t)}e^{-jpt}dt = \frac{2 \pi j}{|p|}\sum \operatorname{res}_z R(z)e^{jz}$$
+$$\hat{f}(p)=\frac{2\pi j}{|p|}({res}_{2|p|j}R(z)e^{jz}+{res}_{3|p|j}R(z)e^{jz})$$
+$$\hat{f}(p)=\frac{2\pi j}{|p|}\left(\frac{p^4}{4|p|j\cdot 5p^2}e^{-2|p|} + \frac{p^4}{-5p^2\cdot6|p|j}e^{-3|p|} \right)$$
+Prakticky mame vysledek, ale ted to jen dostat do hezciho stavu, takze vytkneme vse, co se da:
+$$\hat{f}(p)=\frac{2\pi j}{|p|}\cdot \frac{p^4}{5p^2\cdot2|p|j}\left(\frac{e^{-2|p|}}{2}-\frac{e^{-3|p|}}{3}\right)$$
+A pokratime vse, co se da. Takze se zkrati $j$, dvojky $p^4$ s $p^2$:
+$$\hat{f}(p)=\frac{\pi}{|p|}\cdot \frac{p^2}{5\cdot|p|}\left(\frac{e^{-2|p|}}{2}-\frac{e^{-3|p|}}{3}\right)$$
+Tady lze jeste udelat to, ze $|p|\cdot|p| = p^2$, takze se zkrati i to a mame vysledek:
+$$\hat{f}(p)=\frac{\pi}{5}\left(\frac{e^{-2|p|}}{2}-\frac{e^{-3|p|}}{3}\right)$$
+
+
+\newpage
+
+\section{\label{sec:4}Naleznete Fourieruv obraz funkce $f(t)=e^{-a(t-1)^2}$,$\;$ $a>0$}
+Vyjdeme z definice:
+$$\hat{f}(p)=\int_{-\infty}^\infty e^{-a(t-1)^2} e^{-jpt}dt$$
+Kdyz se na zadani trochu zadivame :), muzeme tam videt jistou shodu s funkci $f(t)=e^{-u^2}$, viz rovnice (\ref{eq:ena2}). Tak to zkusime nejak lepe na to prevest pomoci substituce:
+$$-a(t-1)^2 = -u^2$$
+Vykneme u, zde se nam skvele hodi, ze $a>0$, jinak bychom museli resit dva pripady $\sqrt{a}$ pro $a>=0$ a $j\sqrt{a}$ pro $a<0$
+$$u = \sqrt{a}(t-1)$$
+Zderivujeme a vytkneme dt
+$$\frac{du}{\sqrt{a}}=dt$$
+A jeste potrebujeme si vytknout $t$:
+$$t= \frac{u}{\sqrt{a}}+1$$
+A tyto substituce dosadime do zadani:
+$$\hat{f}(p)=\int_{-\infty}^\infty e^{-u^2}e^{-jp\left( \frac{u}{\sqrt{a}}+1\right)}\frac{du}{\sqrt{a}}$$
+Clen $e^{-jp\left(\frac{u}{\sqrt{a}}+1\right)}$ si rozdelime na cast zavislou na promene u a na konstantni:
+$$\hat{f}(p)=\int_{-\infty}^\infty e^{-u^2}e^{-jp\frac{u}{\sqrt{a}}}e^{-jp}\frac{du}{\sqrt{a}}$$
+Konstantni casti muzeme vytknout pred integral:
+$$\hat{f}(p)=\frac{e^{-jp}}{\sqrt{a}}\int_{-\infty}^\infty e^{-u^2}e^{-jp\frac{u}{\sqrt{a}}}du$$
+V takto upravene rovnici bychom meli vyhodit shodu s rovnici
+$$\int_{-\infty}^\infty e^{{-t}^2}\cdot e^{-jpt}dt = \sqrt{\pi}e^{-\frac{p^2}{4}}$$
+Zde muze byt matouci clen $\frac{u}{\sqrt{a}}$ namisto $t$. Clen $\sqrt{a}$ ve jmenovateli ovlivni vzorec tak, ze jeho druha mocnina bude ve jmenovateli vysledku, tedy vse dohromady:
+$$\hat{f}(p)=\frac{e^{-jp}}{\sqrt{a}}\cdot \sqrt{\pi}e^{\left(-\frac{\displaystyle p^2}{\displaystyle 4\boldsymbol{a}}\right)}$$
+
+\newpage
+
+\section{Naleznete Fourieruv obraz funkce $f(t)=\frac{1}{a^2+t^2}$, $a>0$}
+
+Zadana funkce $f(t)$ je opet podil dvou polynomialnich funkci. Tedy musime rozhodnout, jake jsou koreny jmenovatele:
+$$t^2=-a^2$$
+Zde se opet hodi, ze $a>0$, kdyby ne, rozpadlo by se nam to na dve reseni.
+$$t = \pm ja$$
+
+Koreny jmenovatele jsou imaginarni, tedy jako u prikladu \ref{sec:3} to vede na pouziti rovnice \ref{eq:rac_imag} pro urceni polynomu $R(z)$ a nasledne aplikace reziduove vety, viz rovnice \ref{eq:rez}.
+
+Polynom $R(z)$ se urci jako:
+$$R(z)=\frac{1}{a^2+\left(-\frac{z}{p}\right)^2}=\frac{p^2}{a^2p^2+z^2}=\frac{p^2}{(z-a|p|j)(z+a|p|j)}$$
+Vsimnete si, ze jsem uz bezostychu pridala absolutni hodnotu okolo p, tedy $|p|$. Absolutni hodnota se pridava jako figl proto, abychom zajistili, ze hodnota p nam neprohodi koreny v kladne a zaporne polorovine komplexni roviny. To potrebujeme zajistit, protoze u Fourierovy transformace pouzivame pouze ty koreny, ktery lezi v kladne polorovine.
+
+Dale muzeme aplikovat vypocet transformace pres reziduovu vetu, viz rov. (\ref{eq:rez}). Urcujeme reziduum pouze pro koren $a|p|j$, ktery ma nasobnost 1, coz je nejlehci pripad. Pokud si nejste jisty vzorce, podivejte se na predchozi kapitolu.
+$$\hat{f}(p)=\frac{2\pi j}{|p|}\left(\lim_{z \to a|p|j} \frac{p^2}{(z+a|p|j}e^{jz} \right)$$
+$$\hat{f}(p)=\frac{2\pi j}{|p|}\frac{p^2}{2a|p|j}e^{-a|p|}$$
+Muzeme zkratit dvojky, imaginarni jednotku j, a ve jmenovateli $|p|\cdot |p|$ muzeme zkratit s $p^2$ v citateli. Vysledek je tedy
+$$\hat{f}(p)=\frac{\pi e^{-a|p|}}{a}$$
+
+\newpage
+
+\section{Naleznete Fourieruv obraz funkce $f(t)=\operatorname{sin}t \cdot e^{-at^2}$, $a>0$}
+
+V prvni rade se zbavime funkce $\operatorname{sin}t$ a to s pouzitim vzorce:
+
+$$sin(t)=\frac{e^{jt}-e^{-jt}}{2j}$$
+Pokud tento vzorec jeste nemate ve svych vypsanych, urcite si ho tam napiste. Hodi se!
+Zadani teda po uprave vypada:
+
+$$f(t)=\frac{e^{jt}-e^{-jt}}{2j} \cdot e^{-at^2}$$
+Muzeme pozorovat, ze se tam nachazi hodne $e^{neco}$, zkusime to tedy vyresit pres definici, viz rov. (\ref{eq:definice}).
+
+$$\hat{f}(p)=\int_{-\infty}^{\infty} \frac{e^{jt}-e^{-jt}}{2j} \cdot e^{-at^2} \cdot e^{-jpt} dt$$
+Vytkneme co se da pred integral a vynasobime citatel:
+$$\hat{f}(p)=\frac{1}{2j}\int_{-\infty}^{\infty}\left( e^{jt-at^2-jpt} - e^{-jt-at^2-jpt} \right)dt$$
+Coz muzeme roztrhnout na dva integraly, pro prehlednost je spoctu kazde zvlast:
+$$\hat{f_1}(p)=\frac{1}{2j}\int_{-\infty}^{\infty} e^{jt-at^2-jpt} dt$$
+Coz upravim, abych mela zvlast clen s $t^2$ a s $t$ 
+$$\hat{f_1}(p)=\frac{1}{2j}\int_{-\infty}^{\infty} e^{-at^2} e^{-(-1+p)jt} dt$$
+V takto upravene rovnici bychom meli videt jistou shodu s rovnici (\ref{eq:ena2}), tedy:
+$$\hat{f}(p)=\int_{-\infty}^\infty e^{{-t}^2}\cdot e^{-jpt}dt = \sqrt{\pi}e^{-\frac{p^2}{4}}$$
+(Podobna situace se resila v prikladu \ref{sec:4}.)
+Zavedu si substituci:
+$$u^2=at^2$$
+$$u = \sqrt{a}t$$
+Z toho vytknu t a zjistim dt:
+$$t=\frac{u}{\sqrt{a}}$$
+$$dt=\frac{du}{\sqrt{a}}$$
+Pouziji tuto substituci:
+$$\hat{f_1}(p)=\frac{1}{2j}\int_{-\infty}^{\infty}e^{-u^2}e^{-(-1+p)j\frac{u}{\sqrt{a}}}\frac{du}{\sqrt{a}}$$
+A s pouzitim rovnice (\ref{eq:ena2}), muzeme napsat vysledek, jen si musime dat pozor na konstatni cleny:
+$$\hat{f_1}(p)=\frac{1}{2j\sqrt{a}}\sqrt{\pi}e^{-\frac{(-1+p)^2}{4a}}$$
+Poznamka: Pro pouziti daneho vzorce, jsme potrebovali mit vytkle minus pred zbytkem v exponentu, tedy $e^{-neco}$.
+
+Ted udelame to stejne pro druhou cast:
+$$\hat{f_2}(p)=\frac{1}{2j}\int_{-\infty}^{\infty}- e^{-jt-at^2-jpt} dt$$
+Postup je naprosto totozny, opet rozdil na cast s $t^2$ a na cast s $t$, jeste si vytknu minus pred $e$ pred integral:
+$$\hat{f_2}(p)=-\frac{1}{2j}\int_{-\infty}^{\infty} e^{-at^2}e^{-(1+p)jt}dt$$.
+V tomto pripade muzeme pouzit stejnou substituci:
+$$\hat{f_2}(p)=-\frac{1}{2j}\int_{-\infty}^{\infty} e^{-u^2 e^{-(1+p)j\frac{u}{\sqrt{a}}}}\frac{du}{\sqrt{a}}$$
+A opet s pouziti rovnice (\ref{eq:ena2}) z toho ziskame prostym porovnanim vysledek:
+$$\hat{f_2}(p)=-\frac{1}{2j\sqrt{a}}\sqrt{\pi}e^{-\frac{(1+p)^2}{4a}}$$
+Obe casti $\hat{f_1}(p)$, $\hat{f_2}(p)$ secteme a ziskame vysledek:
+$$\hat{f}(p)= \hat{f_1}(p)+\hat{f_2}(p)$$
+$$\hat{f}(p)=\frac{\sqrt{\pi}}{2j\sqrt{a}}\left( e^{-\frac{(-1+p)^2}{4a}} - e^{-\frac{(1+p)^2}{4a}}\right)$$
+
+Tak a toto by asi kazdy normalni smrtelnik povazoval za vysledek, ale matikari si radi hraji s pismenky a maji radi veci "uhlazene", a tak, kdyz porovname nas vysledek s oficialnim vysledkem, zjistime, ze se lisi v $\frac{1}{j}$ vs $-j$, to je jednoducha uprava, ktere se rika usmerneni, ktere za ucelem zbaveni se odmocniny ve zlomku, zlomek rozsiri vhodnym vyrazem. A protoze komplexni jednotka j je vlastne prevlecena odmocnina, tak proto to maji matematici radi :) Zde zlomek roznasobime clenem $\frac{j}{j}$, coz je vlastne 1, takze nic nemenime:
+
+$$\frac{1}{j}\cdot \frac{j}{j} = \frac{j}{j^2} = \frac{j}{-1} =-j$$
+Coz dosadime tedy do vysledku a mame to!
+$$\hat{f}(p)=-\frac{j \sqrt{\pi}}{2\sqrt{a}}\left( e^{-\frac{(-1+p)^2}{4a}} - e^{-\frac{(1+p)^2}{4a}}\right)$$
+
+\newpage
+
+\section{Naleznete Fourieruv obraz funkce $f(t)=t e^{-at} 1(t)$, $a>0$}
+
+Tento priklad lze resit dvema zpusoby, bud chytre a spravne, nebo "hrubou silou", jak jsem ho resila ja, nez me kamarad upozornil na vzorec pro derivaci obrazu, viz rov. (\ref{eq:der_obr}). Zde ukazu oba postupy, abyste meli srovnani jak chytre reseni jak efektivni oproti hrube sile.
+
+\subsection{Vzorec pro derivaci obrazu}
+Vzorec (\ref{eq:der_obr}) rika, ze hledame obraz pouze podfunkce $f_2(t)=e^{-at} 1(t)$. Pro zjisteni obrazu vyjdeme z definice, viz rov. (\ref{eq:definice}). Jednotkovy skok $1(t)$ zde pouze znamena, ze dolni mez integralu bude 0, protoze tam nam to jednotkovy skok zapina.
+
+$$\hat{f_2}(p)=\int_0^{\infty} e^{-at} e^{-jpt}dt = \int_0^{\infty} e^{-(a+jp)t}dt$$
+Toto je uplne zakladni integral, vyresime substituci:
+$$-(a+jp)t=u$$
+$$dt = -\frac{du}{a+jp}$$
+$$\hat{f_2}(p)=-\int_0^\infty e^u \frac{du}{a+jp} = \left[ \frac{e^u}{a+jp} \right]$$
+Bud muzeme meze prepocitat a nebo se vratit v substituci zpet:
+$$\hat{f_2}(p) =- \left[ \frac{e^{-(a+jp)t}}{a+jp} \right]_0^\infty = -(0 - \frac{1}{a+jp}) = \frac{1}{a+jp}$$
+Jak rika vzorec (\ref{eq:der_obr}), takto ziskany obrazu musime zderivovat (kvuli existenci t v zadani, ktere jsme zatim vynechali). Dulezite je, ze derivujeme uz obraz podle $p$.
+$$\hat{f}(p)=j\frac{d}{dp}\hat{f_2}(p)=\left(\frac{j}{a+jp} \right)'$$
+Osvezime vzorec pro derivovani zlomku:
+$$f(t) = \frac{u(t)}{v(t)}$$
+$$f'(t) = \frac{u'(t)v(t) - u(t)v'(t)}{v^2(t)}$$
+Tedy nas vysledek:
+$$\hat{f}(p)=\frac{0-j\cdot j}{(a+jp)^2} = \frac{1}{(a+jp)^2}$$
+
+\subsection{Hruba sila}
+
+A ted slibena ukazka hrubou silou. Prosim, je to jen pro srovnani, pouzivejte vzdy postup s pouzitim vzorce. Usetrite si znacne trapeni (kdo neveri, at si zkusi hrubou silou udelat priklad 8).
+
+Zde jsem vysla z definice, opet jednotkovy skok zmeni pouze meze:
+$$\hat{f}(p)=\int_0^\infty t\cdot e^{-at} e^{-jpt}dt = \int_0^\infty t e^{-(a+jp)t}dt$$
+Zde dostavame dve funkce, ktere zavisi na promene $t$, takovy integral se standartne resi metodou perpartes. (viz matika prvaku) Zde je potreba vhodne zvolit funkci, ktera se bude derivovat a ktera intergrovat. Napr:
+$$u(t)=t$$
+$$u'(t) = 1$$ 
+$$v'(t) = e^{-(a+jp)t}$$
+$$v(t) = \frac{e^{-(a+jp)t}}{-(a+jp)}$$
+Vzorec perpartes rika:
+$$\int u(t)\cdot v'(t)dt = u(t)v(t) - \int u'(t)v(t)dt$$
+Po aplikaci tedy ziskame:
+$$\hat{f}(p) = \left[t\cdot \frac{e^{-(a+jp)t}}{-(a+jp)} \right]_0^\infty - \int_0^\infty 1\cdot \frac{e^{-(a+jp)t}}{-(a+jp)} dt$$
+Dosadim meze do prvniho clenu a vytknu konstanty pred integral:
+$$\hat{f}(p)=[0-0]+\frac{1}{a+jp} \int_0^\infty e^{-(a+jp)t}dt$$
+Vyresim standardni integral (substituci, ale uz to tu nebudu rozepisovat):
+$$\hat{f}(p)= \frac{1}{a+jp} \left[ -\frac{ e^{-(a+jp)t}}{a+jp}\right]_0^\infty$$
+Dosadim meze a ziskam:
+$$\hat{f}(p) = \frac{1}{a+jp} \left[ 0 - \left(-\frac{1}{a+jp} \right) \right] = \frac{1}{(a+jp)^2}$$
+
+\newpage
+
+\section{Naleznete Fourieruv obraz funkce $f(t)=t^2 e^{-at^2}$, $a>0$}
+
+Toto je priklad na aplikaci vzorce pro derivaci obrazu a to hned dvakrat. Zadani si prepisu jako:
+$$f(t)=t (t e^{-at^2})$$
+Takze postup je najit obraz $\hat{f_2}(p)$ funkce $f_2(t) = e^{-at^2}$, pouzit vzorec \ref{eq:der_obr} jednou ($\hat{f_3(p)}$), a pak jeste podruhe. 
+
+Obraz funkce $f_2(t)  = e^{-at^2}$ mame ve vzorcich, viz (\ref{eq:ena2}). Tedy:
+$$\hat{f_2}(p) = \frac{\sqrt{\pi}}{\sqrt{a}}e^{\frac{-p^2}{4a}}$$
+Ted aplikujeme poprve vzorec pro derivaci obrazu:
+$$\hat{f_3}(p) = j\frac{d}{dp}\hat{f_2}(p)$$
+Jedna se o derivovani slozene funkce, kde vnitrni funkce je exponent a vnejsi funkce je $e$. Derivace slozene funkce se vypocte jako derivaci vnitrni krat derivace vnejsi. A protoze derivace $e^{neco}$ je zase $e^{neco}$, mame jednodussi praci:
+$$\hat{f_3}(p) = j \frac{\sqrt{\pi}}{\sqrt{a}} \left(-\frac{2p}{4a}\right) e^{\frac{-p^2}{4a}}= -\frac{j\sqrt{\pi}}{2a\sqrt{a}}(p\cdot e^{-\frac{p^2}{4a}})$$
+A na tuto funkci pouzijeme vzorec o derivaci obrazu jeste jednou. 
+$$\hat{f}(p) = j \frac{d}{dp}\hat{f_3}(p)$$
+Ve funkci $\hat{f_3}(p)$ se nachazeji dve funkce zavisle na p, ktere se mezi sebou nasobi. Musime tedy pro derivaci pouzit vzorec pro derivovani soucinu, osvezime:
+$$(u(t)v(t))' = u'(t)\cdot v(t)+u(t)\cdot v'(t)$$
+Tedy:
+$$\hat{f}(p) = j\cdot \left(-\frac{j\sqrt{\pi}}{2a\sqrt{a}} \right) \left( 1\cdot e^{-\frac{p^2}{4a}}+ p \cdot \frac{-2p}{4a}e^{-\frac{p^2}{4a}} \right)$$
+Coz upravime naslednovne. Komplexni jednotky pred zavorkou vynasobime, coz nam zmeni znamenko. Nasledne muzeme jeste vynasobit druhy clen v posledni zavorce:
+$$\hat{f}(p) = \frac{\sqrt{\pi}}{2a\sqrt{a}} \left(e^{-\frac{p^2}{4a}}- \frac{p^2}{2a}e^{-\frac{p^2}{4a}} \right)$$
+
+\newpage
+
+\section{Urcete inverzni Fourierovu transformaci funkce $g(p)=e^{j\omega p}(1(p-a)-1(p-b))$, $a<b$}
+
+Jednotkove skoky nam funkci $e^{j\omega p}$ 'zapnou' pouze v intervalu $<a,b>$. Vyjdeme z definice pro vypocet inverzni fourierovy transformace (\ref{eq:invF}) s tim, meze $(-\infty,\infty)$ prejdou na meze $<a,b>$. Budeme urcovat inverzni transformaci pro zbylo funkci $e^{j\omega p}$, tedy:
+
+$$f(t) = \frac{1}{2\pi} \int_a^b e^{j\omega p} e^{jpt}dp = \frac{1}{2\pi}\int_a^b e^{j(\omega+t)p}dp$$
+(pozn: Zduraznuji, ze ve vzorci je $e^{jpt}$ opravdu se znamenkem plus, jako protiklad k prime fourierove transformaci, kde v exponentu bylo minus.)
+
+Integral vyse muzeme snadno odintegrovat pomoci substituce, pripadne zhlavy (pri integrovani pouze exponencialni funkce exponent bez promene prijde vzdy do jmenovatele zlomku):
+$$j(\omega+t)p = u$$
+$$j(\omega+t)dp = du$$ 
+$$dp = \frac{du}{j(\omega+t)}$$
+
+$$f(t) = \frac{1}{2\pi} \int e^u \frac{du}{j(\omega+t)} = \frac{1}{2\pi} \left[ \frac{e^u}{j(\omega+t)}\right]$$
+Spravne bychom meli prepocitat meze, tady jsem je neuvadela z lenosti, protoze se v substituci vratim. Matematici by asi nadseny nebyly, a tak doporucuji to udelat bud z hlavy a nebo nekam na bok papiru. 
+$$f(t) = \frac{1}{2\pi} \left[ \frac{e^{j(\omega +t)p}}{j(\omega +t)}\right]_a^b = \frac{1}{2\pi} \left[ \frac{e^{j(\omega +t)b}-e^{j(\omega +t)a}}{j(\omega +t)}\right]$$
+
+\newpage
+
+\section{Jake funkce maji soucasne realny vzor i obraz ve Fourierove transformaci?}
+
+Zde se vyuzije pravidla konjugace (\ref{eq:konjug}). Funkce je obecne dana jako:
+$$f(t) = x(t)+jy(t)$$
+Predpokladejme pouze realnou funkci:
+$$f(t) = x(t)$$
+Jeji Fourierova transformace je dle zadani take jenom realna $\hat{f}(p) = \hat{x}(p)$
+Pravidlo konjugace rika, ze 
+$$F\{\overline{f(-t)}\} = \overline{\hat{f}(p)}$$
+Protoze mame realny vzor i obraz, konjugace nic nezmeni, tedy:
+$$\overline{\hat{f}(p)} = \hat{f}(p)$$
+$$\overline{f(-t)} = f(-t)$$
+Jelikoz Fourieruv obraz pro $f(t)$ i pro $f(-t)$ jsou stejne, musi tedy i platit, ze
+$$f(t) = f(-t)$$
+Takova rovnice plati pouze pro sude funkce (jsou symetricke s osou y).
+
+
+
+
+
+
+
+
+
+
