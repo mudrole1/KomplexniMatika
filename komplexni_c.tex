@@ -373,6 +373,7 @@ $$|a_{31}| = \sqrt{\frac{9}{4}+\frac{3}{4}} = 3$$
 Vsechny tri strany maji stejnou velikost, tedy jsme dokazali, ze trojuhelnik je rovnostranny.
 
 \section{Popiste nasledujici mnoziny:}
+%TODO: vsechny priklady + obrazky
 \subsection*{a) $M = \{ z \in \mathbb{C} \vert |z-j| \leq 1, Re z > 0$}
 Tyto priklady se resi nacrtem. Vzdy je dobre zacit osami (x realne, y imaginarni), jako kriz. Tedy i myslet na zapornou cast. Rovnice typu:
 $$|z-a|\leq b$$
@@ -388,6 +389,48 @@ $1<|z|$ a $|z|<3$. Arg z znamena uhel komplexniho cisla...
 
 \section{Pro ktera $z \in \mathbb{C}$ plati:}
 \subsection*{$\operatorname{Re} \frac{1}{z} = \alpha$, $\alpha \in R$}
+
+Zde mame nalezt komplexni cislo z, tedy jeho realnou $x$ a imaginarni slozku $y$. Nejprve si upravime vyraz:
+$$\frac{1}{z} = \frac{1}{x+jy} = \frac{1}{x+jy}\cdot \frac{x-jy}{x-jy} = \frac{x-jy}{x^2+y^2}$$
+Pouzili jsme jiz znamy trik usmerneni. Ze zadani nas zajima pouze realna slozka, tedy:
+$$\frac{x}{x^2+y^2} = \alpha$$
+Roznasobime:
+$$x = \alpha x^2 + \alpha y^2$$
+V tom muzeme videt jistou podobnost s vyjadrenim kruhu v analyticke matematice: $(x-a)^2 + (y-b)^2 = r^2$, budeme se to tedy do teto podoby snazit dostat:
+$$0 = \alpha x^2 - x + \alpha y^2$$
+Vytknu $\alpha$ protoze potrebuju jen samotne $x^2$ v zavorce:
+$$0 = \alpha (x^2 - \frac{x}{\alpha})+\alpha y^2$$
+Ted zavorku potrebuji dostat $(a-b)^2$, zde na to pouziji trik, co se ucil uz na stredni ci zakladce. Ve vyrazu $x^2 - \frac{x}{\alpha}$ vidim cast vzorce $a^2-2ab+b^2$. Konkretne pozoruji, ze clen $b^2$ chybi. Tak si ho tam pridam. Ale nemuzu jen tak neco pridat... Co pridam, musim zase odecist (abych ve skutecnosti pridala 0). Jak zjistim, co je nutno pridat? Vim, ze prostredni clen odpovida:
+$$-\frac{x}{\alpha} = -2ab$$
+Vim, ze clen $a = x$, hledam clen b:
+$$b = \frac{1}{2\alpha}$$
+$$b^2 = \frac{1}{4 \alpha^2}$$
+Clen $b^2$ tedy pridam do rovnice, nejprve ji ale zopakuji pro prehlednost, az v dalsim radku pridam vyraz dvakrat -jednou prictu a podruhe odectu.
+$$0 = \alpha (x^2 - \frac{x}{\alpha})+\alpha y^2$$
+$$0 = \alpha  \left(x^2 - \frac{x}{\alpha} + \frac{1}{4 \alpha^2} - \frac{1}{4 \alpha^2}\right) +\alpha y^2$$
+Posledni vyraz (co odecitam) vytknu ze zavorky (abych tam mela jen cleny $a^2-2ab+b^2$, pozor na to, ze pred zavorkou je $\alpha$, tedy se roznasobi posledni clen, kdyz jde ze zavorky pryc:
+$$0 = \alpha \left(x^2 - \frac{x}{\alpha} + \frac{1}{4 \alpha^2}\right)- \frac{1}{4 \alpha} +\alpha y^2$$
+Ted tedy od vzorce  $a^2-2ab+b^2$ muzeme prejit na $(a-b)^2$:
+$$0 = \alpha \left(x-\frac{1}{2\alpha}\right)^2  - \frac{1}{4 \alpha} +\alpha y^2$$
+Clen $ - \frac{1}{4 \alpha}$ neobsahuje ani jednu promenou, je to cislo, presuneme ho tedy na druhou stranu:
+$$ \frac{1}{4 \alpha} = \alpha \left(x-\frac{1}{2\alpha}\right)^2 +\alpha y^2$$
+Z definice kruznice pred cleny $x^2, y^2$ nema byt zadny clen, tedy rovnici vydelim $\alpha$:
+$$ \frac{1}{4 \alpha^2} = \left(x-\frac{1}{2\alpha}\right)^2 +y^2$$
+A toto je rovnice kruznice. Jeji parametry zjistim nasledovne. Na prave strane je cislo odpovidajici $r^2$, tedy:
+$$r^2 = \frac{1}{4\alpha^2}$$
+$$r = \frac{1}{2\alpha}$$
+Stred kruznice je dan hodnotou, pro kterou se cleny
+$\left(x-\frac{1}{2\alpha}\right)$ a $y^2$ (obecne muze byt take zavorka a slozitejsi vyraz) rovnaji nule, tedy:
+$$x-\frac{1}{2\alpha} = 0$$
+$$x = \frac{1}{2\alpha}$$
+$$y = 0$$
+
+Tedy zaver je, ze rovnice ze zadani plati pro vsechna $z \in \mathbb{C}$, ktera lezi na kruznici (pouze na oblouku, ne uvnitr!) se stredem $S=\left[\frac{1}{2\alpha},0\right]$ a polomerem $r=\frac{1}{2\alpha}$
+
+%TODO: dodelat ostatni
+
+\section{Jaky je obraz cisel $1, -1, j, \frac{1-j}{\sqrt{2}}$ pri stereograficke projekci?}
+
 
 
 
