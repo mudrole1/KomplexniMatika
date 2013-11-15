@@ -1,0 +1,59 @@
+\chapter{Reprezentace holomorfni funkce mocninou radou}
+
+\section{Motivace}
+%TODO
+
+\section{Vzorce}
+Mocnina rada se stredem v bode $z_0$:
+$$\sum_{n=0}^\infty a_n (z-z_0)^n = a_0 + a_1 (z-z_0) +a_2 (z-z_0)^2 + \dots$$
+Tedy se jedna o sumu ruznych polynomialnich funkci s promenou z a koeficienty $a_n$.
+
+\subsection{Typy konvergence}
+\subsubsection*{Bodova}
+\begin{equation}
+\label{eq:bod_kon}
+Sm(z)-f(z)| \to 0 \; \operatorname{pro} \; n \to \infty
+\end{equation} 
+
+\subsubsection*{Stejnosmerna}
+\begin{equation}
+\label{eq:ste_kon}
+\operatorname{sup}_{z \in M} |Sm(z)-f(z)| \to 0 \; \operatorname{pro} \; n \to \infty
+\end{equation}
+
+\subsection{Kriteria pro urceni konvergence a jejiho polomeru $R$}
+
+\subsubsection*{Odmocninove}
+\begin{equation}
+\label{eq:odm}
+\frac{1}{R} = \lim_{n \to \infty} \sqrt[n]{a_n}
+\end{equation}
+\subsubsection*{Podilove}
+\begin{equation}
+\label{eq:pod}
+\frac{1}{R} = \lim_{n \to \infty} \frac{|a_{n+1}|}{|a_n|}
+\end{equation}
+\subsubsection*{Srovnavaci}
+%TODO: doplnit
+Rada konverguje pokud $\frac{1}{R} < 1$
+
+\subsection*{Soucet rady}
+Pro specialni pripad rady (tzv. geometricka) $\sum_{n_0}^\infty z^n$ vime, ze jeji soucet se da vypocitat jako:
+\begin{equation}
+\label{eq:soucetr}
+S(z) = \frac{1}{1-z}
+\end{equation}
+Tedy, kdyz jsme dotazani na vypocet souctu rady, snazime se pouzit figle na to, jak tam najit podobnost prave s geometrickou radou. Tim padem pak muzeme pouzit tento vzorec. Figle jsou dva:
+\begin{itemize}
+\item Derivace rady - ale pozor, musime pak zintegrovat zpet soucet!
+\item Prechod k primitivni funkci (integrace) - ale pozor, musime pak zderivovat soucet!
+\end{itemize}
+
+\subsection*{\label{sec:rozviteFce} Uzitecne vzorecky}
+$$e^z = \sum_{n=0}^\infty \frac{z^n}{n!}$$
+$$sin(z) = \sum_{n=0}^\infty (-1)^n \frac{z^{(2n+1)}}{(2n+1)!}$$
+$$cos(z) = \sum_{n=0}^\infty (-1)^n \frac{z^{(2n)}}{(2n)!} $$
+$$ln(z) = \sum_{n=0}^\infty \frac{(-1)^{(n-1)}}{n}(z-1)^n$$
+$$arctg(z) = \sum_{n=0}^\infty (-1)^n \frac{z^{(2n+1)}}{2n+1}$$
+
+

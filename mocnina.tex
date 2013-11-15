@@ -1,0 +1,138 @@
+\chapter{Reprezentace holomorfni funkce mocninou radou}
+
+\section{Urcete kruh konvergence nasledujicich mocninych rad}
+
+\subsection{a) $\sum_{n=0}^{\infty} \frac{n}{2^n}(z-1)^n$}
+Pouziji odmocninove kriterium, protoze ve jmenovateli porozuji clen $2^n$ a tedy doufam, ze n-tou odmocninou se toho zbavim. Tedy:
+$$\frac{1}{R} = \lim_{n \to \infty} \sqrt[n]{a_n} = \lim_{n \to \infty} \sqrt[n]{\frac{n}{2^n}}=\lim_{n \to \infty} \frac{\sqrt[n]{n}}{2}$$
+
+V citateli vidim vzorec $lim_{n \to \infty} \sqrt[n]{n} =1$, vyuziji toho, tedy:
+$$\frac{1}{R} = \frac{1}{2}$$
+Z toho $R=2$. Stred je takovy bod, pro ktery cast ze zadani $(z-1) =0$, tedy $S=1$. Kruh je tedy:
+$U(S,R) = U(1,2)$
+
+\subsection{b) $\sum_{n=0}^\infty \frac{n!}{n^n}z^n$}
+BLBEEEEE
+Pouziji podilove kriterium kvuli faktorialu, doufam, ze mi to pomuze :)
+$$\frac{1}{R} = \lim_{n \to \infty} \frac{a_{n+1}}{a_n} = \lim_{n \to \infty} \frac{\frac{(n+1)!}{(n+1)^{(n+1)}}}{\frac{n!}{n^n}} = \lim_{n \to \infty} \frac{\frac{(n+1)n!}{(n+1)^{(n+1)}}}{\frac{n!}{n^n}}$$
+Hura, pomohlo. $n!$ se zkrati!
+$$\frac{1}{R} = \lim_{n \to \infty} \frac{(n+1)n^n}{(n+1)^{(n+1)}}$$
+Upravim jmenovatel dle $a^{(n+1)} = a^1 a^n$:
+$$\frac{1}{R} = \lim_{n \to \infty} \frac{(n+1)n^n}{(n+1)(n+1)^n}$$
+Clen $(n+1)$ se zkrati, zbyde:
+$$\frac{1}{R} = \lim_{n \to \infty} \frac{n^n}{(n+1)^n}$$
+
+TODO:DODELAT
+
+\subsection{c) $\sum_{n=0}^\infty n^n (z+2)^n$ }
+Pouziju odmocninove kriterium, protoze v clenu $a_n$ vidim mocninu $n$. V takovych pripadech hodne casto pouziji odmocninove.
+$$\frac{1}{R} = \lim_{n \to \infty} \sqrt[n]{n^n} = \lim_{n \to \infty} n = \infty$$
+Z toho prevracena hodnota $R=0$.Stred je $S=-2$, kruh $U(-2,0)$, tedy je to jen bod ${-2}$.
+
+\subsection{d) $\sum_{n=0}^\infty z^{n^2}$}
+Tady je maly chytacek, protoze polomer urcuje ze clenu $a_n$! Clen $a_n$ je vzdy pred $z^{neco}$, tedy v nasem pripade je $a_n = 1$ pro vsechna n. Takze treba formalne pres podilove kriterium:
+$$\frac{1}{R} = \lim_{n \to \infty} \frac{1}{1} = 1$$
+Tedy $R=1$. Stred $S=0$, tedy kruh $U(0,1)$.
+
+\subsection{e) $\sum_{n=0}^\infty 5^n z^{n!}$}
+Vidim $neco^n$, smeruju to na odmocninove kriterium.
+$$\frac{1}{R} = \lim_{n \to \infty} \sqrt[n]{5^n} = \lim_{n \to \infty} 5 =5$$
+Tedy $R=\frac{1}{5}$, stred $S=0$, $U(0,\frac{1}{5})$
+
+TODO: zde nesedi vysledek se skripty.
+
+\subsection{f) $\sum_{n=0}^\infty \frac{1}{(2n+1)!}z^{2n+1}$}
+Jak vidim faktorial, snazim se pouzit podilove:
+$$\frac{1}{R} = \lim_{n \to \infty} \frac{\frac{1}{(2(n+1)+1)!}}{\frac{1}{(2n+1)!}} = \lim_{n \to \infty} \frac{\frac{1}{(2n+3)!}}{\frac{1}{(2n+1)!}}$$
+Ted pozoruju podobnost $(2n+3)!$ s dalsim faktorialem. Ale prvni zmineny ma nektere cleny navic, tedy ho castecne rozlozim:
+$$\frac{1}{R} = $$
+
+%TODO: zbytek
+
+\section{Necht mocnina rada $\sum_{n=0}^\infty a_n z^n$ ma polomer konvergence $0< R <\infty$. Urcete polomer konvergence rady}
+\subsection*{a) $\sum_{n=0}^\infty (2^n-1)a_n z^n$}
+Promenou $R_1$ oznacim polomer konvergence nove rady.
+$$\frac{1}{R_1} = \lim_{n \to \infty} \frac{(2^{n+1}-1) a_{(n+1)}}{(2^n-1)a_n}$$
+Vim, ze:
+$$\lim_{n \to \infty} \frac{a_{n+1}}{a_n} = \frac{1}{R}$$
+Tedy to pouziji a dosadim R, coz je polomer konvergence puvodni rady $\sum_{n=0}^\infty a_n z^n$!
+(my vlastne chceme zjistit polomer konvergence rozsirene rady s vyuzitim puvodniho, tedy dat do vztahu, jak rozsireni rady zmenilo konvergenci.
+$$\frac{1}{R_1} = \lim_{n \to \infty} \frac{(2^{n+1}-1)}{(2^n-1)}\frac{1}{R} =  \lim_{n \to \infty} \frac{2^n\cdot 2 - 1}{2^n -1} \frac{1}{R}$$
+Takove to limity se resi vytknutim co nejvyssi spolecne mocniny, (aby se nam to zkratilo) tedy:
+$$\frac{1}{R_1} = \lim_{n \to \infty} \frac{2^n (2-\frac{1}{2^n})}{2^n (1 - \frac{1}{2^n})} \frac{1}{R}$$
+$$\frac{1}{R_1} = \lim_{n \to \infty} \frac{2-\frac{1}{2^n}}{1-\frac{1}{2^n}}\frac{1}{R}$$
+Ted kdyz posleme $n \to \infty$, tak zlomek $\frac{1}{2^n}$ bude nula (jmenovatel bude nekonecno a cokoliv deleno nekonecnem je nula), tedy zbyde:
+$$\frac{1}{R_1} = \frac{2}{1} \frac{1}{R}$$
+A z toho:
+$R_1 = \frac{1}{2} R$
+
+%TODO: zbytek
+
+\section{Necht rady $\sum_{n=0}^\infty a_n z^n$, $\sum_{n=0}^\infty b_n z^n$ maji polomery konvergence $R_1 >0$ a $R_2 > 0$. Urcete koeficienty $c_n$, aby platilo:}
+$$\sum_{n=0}^\infty c_n z^n = \left( \sum_{n=0}^\infty a_n z^n \right) \cdot \left( \sum_{n=0}^\infty b_n z^n \right) $$
+
+%TODO: dodelat
+
+\section{Prechod k derivaci ci primitivni funkci naleznete soucet rady pro $|z|<1$}
+\subsection*{a) $\sum_{n=1}^\infty \frac{z^n}{n}$}
+Tady jde o to, ze vime, jak vyjadrit soucet geometricke rady, viz \ref{eq:soucetr}. Zde se nabizi derivace (jak to vim? Proste zkusim, mam jen 2 moznosti a cekam, ze se mi to zjednodussi). Derivuji podle z! $n$ je konstanta
+$$\left( \sum_{n=1}^\infty \frac{z^n}{n} \right)' = \sum_{n=1}^\infty \frac{n z^{n-1}}{n} = \sum_{n=1}^\infty z^{(n-1)}$$
+Jeste bychom se chteli zbavit (n-1) v exponentu a mit tam jen ridici promenou sumy. To udelame substituci:
+$m=n-1$
+Pozor! Musime taky prepocitat meze u sumy, puvodni suma zacina od $n=1$, kdyz tuto hodnotu dosadim do substituce, tak dostanu $m=0$. Vsimnete si, ze tady je zadani udelano chytre, kdyby $n=0$, tak $m=-1$ a takova mocnina rada neexistuje, ta vzdy ma pozitivni cisla! Tedy aplikace substituce nam da:
+$$=\sum_{m=0}^\infty z^m$$
+To je nase hledana geometricka rada, o jejim souctu vime, ze je:
+$$S_g(z) = \frac{1}{1-z}$$
+Abychom ziskali soucet puvodni rady, musime tento soucet integrovat (opak k derivaci, co jsme provedli), tedy:
+$$S(z) = \int \frac{1}{1-z}$$
+Zde je vhodne oprasit znalosti z integrovani a vzpomenout si, ze:
+$$\int \frac{1}{z} = ln z$$
+Jedna se o logaritmus v realnych cislech, pri praci s komplexnimi cisly ho radeji oznacujeme $ln_0 z$. My vsak ve jmenovateli mame $1-z$ a to se resi substituci:
+$$1-z = u$$
+$$-dz = du$$
+$$dz = -du$$
+$$S(z)=\int \frac{1}{u}(-du) = - ln_0 (u) = - ln_0 (1-z)$$
+A mame hotovo!
+
+%TODO: zbytek
+
+\section{Naleznete (pokud existuje) funkci f holomorfni na okoli 0 takovou, ze}
+\subsection*{$f(\frac{1}{n}) = f(-\frac{1}{n}) = \frac{1}{n^2}$, $n \geq 1$}
+Toto se resi, ze misto $\frac{1}{n}$ napisu z a vyhodnocuji, zda to dava smysl. Tedy:
+$$f(z) = f(-z) = z^2$$
+$z^2$ je kvadraticka funkce, tedy napr cast $f(z) = z^2$ dava smysl, ale i $f(-z) = z^2$ (kdyz dosadim zaporne cislo, dostanu zase kladne, stejnou hodnotu jako pro $z$. Tedy funkce existuje, a je to $f(z)= z^2$
+
+\subsection*{$f(\frac{1}{n}) = f(-\frac{1}{n}) = \frac{1}{n^3}$}
+Kdyz tedy predpokladam, ze plati funkce:
+$$f(z) = z^3$$, 
+tak pokud bych do teto fce dosadila $-z$ dostanu:
+$$f(-z) = -z^3$$
+Coz tedy pozoruji, ze se nerovna zadane hodnote $f(-z) = z^3$. Funkce tedy neexistuje.
+
+%TODO: zbytek
+
+\section{TODO:Chybi}
+
+\section{Rozvinte funkci f v mocninou radu se stredem v $z_0$ a urcete polomer konvergence teto rady.}
+\subsection*{a) $f(z) = sin(z)$ pro $z_0 = \frac{\pi}{4}$}
+Prakticky se chceme dobrat ke vzorcum, viz sekce \ref{sec:rozviteFce}, ale pozor! To jsou fce rozvite v bode $z_0 = 0$. My to chceme udelat zda nejprve obecne, a pak dosadit zadany $z_0$.
+Na zacatek se hodi vzorec (\ref{eq:sine}), tedy:
+$$sin(z) = \frac{e^{jz}-e^{-jz}}{2j} = \frac{e^{jz}}{2j} - \frac{e^{-jz}}{2j}$$
+Coz jsou dve casti, ktere rozvineme do rady zvlast. Rozvoj funkce $e^z$ muzeme pouzit ze vzorce ze sekce \ref{sec:rozviteFce}:
+$$e^{jz} = \sum_{n=0}^\infty \frac{(jz)^n}{n!}$$ 
+Ale pozor! Rozvijime obecne v bode $z_0$ (a ne nula, jak vzorec predpoklada, tedy tam pribyde hodnota fce $e^{jz}$ v bode $z_0$ a $(z-z_0)^n$, tedy rozvoj fce $e^{jz}$ obecne v $z_0$ je:
+$$e^{jz}=\sum_{n=0}^\infty \frac{j^n(z-z_0)^n}{n!}\cdot e^{jz_0}$$
+To pouzijeme pro sinus:
+$$sin(z) = \sum_{n=0}^\infty \frac{j^n (z-z_0)^n}{n!}\frac{e^{jz_0}}{2j} - \sum_{n=0}^\infty \frac{(-j)^n (z-z_0)^n}{n!}\frac{e^{-jz_0}}{2j}$$
+Coz lze tedy upravit na (sumy dam na jednu stejnou, protoze jsou stejne)
+$$sin(z) = \sum_{n=0}^\infty ((j^n e^{jz_0} -(-j)^{n}e^{-jz_0})\frac{(z-z_0)^n}{2jn!}$$
+To je tedy obecny vzorce, ted tam muzeme dosadit bod, pro ktery nas presne zajima rozvoj v danem bode, muzeme cvicne (MIMO ROZSAH POZADAVKU TOHOTO CVICENI, SPISE PRO NAZORNOST) zkusit, zda kdyz dosadime bod nula, tak nam vyjde vzorec, co ho mame vypsany, tedy dosadim $z_0 = 0$: (pripomin, ze $e^{0} =1 $
+$$sin(z) =  \sum_{n=0}^\infty ((j^n e^{j0} -(-j)^{n}e^{-j0})\frac{(z-0)^n}{2jn!}=  \sum_{n=0}^\infty ((j^n -(-j)^{n})\frac{z^n}{2jn!}$$
+$$sin(z) = \sum_{n=0}^\infty ((j^n -j^n(-1)^{n})\frac{z^n}{2jn!} = \sum_{n=0}^\infty (j^n(1 -(-1)^{n})\frac{z^n}{2jn!}$$
+A zde se to rozpada na pripad, kd $n$ je sude a liche. Pro $n$ sude (0,2,4...) bude $(-1)^n$ bude toto vzdy 1. Vsechny vyrazy $n$ nahradim $2n$, abych zajistila sudovost, pro n porad nabyvajici hodnoty 0,1,2,3...(je to schovana substituce), tedy:
+$$sin(z) = \sum_{n=0}^\infty (j^{2n}(1 -1))\frac{z^{2n}}{2jn!} = 0$$,
+tedy vsechny polynomy pro $n$ sude nic nepridaji. Pro n liche (1,3,5...), bude ale vyraz $(-1)^n = -1$. Opet vsechny $n$ nahradim vyrazem $2n+1$, abych zajistila lichost, tedy:
+$$sin(z) = \sum_{n=0}^\infty (j^{2n+1}(1 -(-1))\frac{z^{2n+1}}{2j(2n+1)!} $$
+Vyraz $j^{2n+1}$ rozlozim na $j^{2n}\cdot j$, coz jeste lze upravit jako $(j^2)^n j$ kdyz vim, ze $j^2=-1$, tedy cely vyraz $j^{2n+1} = (-1)^n j$, dosadim:
+$$sin(z) = \sum_{n=0}^\infty (-1)^n 2 j \frac{z^{2n+1}}{2j(2n+1)!} = \sum_{n=0}^\infty (-1)^n \frac{z^{2n+1}}{(2n+1)!} $$
+Coz presne odpovida vzorci v sekci \ref{sec:rozviteFce}.Tak tohle bylo jen zahrivaci kolecko. Ted zpatky k zadani, chteji zjistit rozvov v bode $z_0 = \frac{\pi}{4}$, tedy postupuje obdobne:

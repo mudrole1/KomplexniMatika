@@ -26,7 +26,14 @@ Souctove vzorce
 \item $\operatorname{cos}(x+y)=\operatorname{cos}(x)\operatorname{cos}(y)-\operatorname{sin}(x)\operatorname{sin}(y)$
 \item $\operatorname{cos}(x-y)=\operatorname{cos}(x)\operatorname{cos}(y)+\operatorname{sin}(x)\operatorname{sin}(y)$
 \end{itemize}
-
+\begin{equation}
+\label{eq:sine}
+sin(z) = \frac{e^{jz}-e^{-jz}}{2j}
+\end{equation}
+\begin{equation}
+\label{eq:cose}
+%TODO: doplnit
+\end{equation}
 \subsubsection*{Komplexne sdruzene cislo}
 $\bar{z}$ oznacuje konjugaci, nebo-li cislo komplexne sdruzene. Pokud $z=x+jy$, pak $\bar{z}=x-jy$. Plati take:
 $$\overline{zw}=\bar{z}\bar{w}$$
@@ -427,9 +434,28 @@ $$y = 0$$
 
 Tedy zaver je, ze rovnice ze zadani plati pro vsechna $z \in \mathbb{C}$, ktera lezi na kruznici (pouze na oblouku, ne uvnitr!) se stredem $S=\left[\frac{1}{2\alpha},0\right]$ a polomerem $r=\frac{1}{2\alpha}$
 
-%TODO: dodelat ostatni
+\subsection*{b) }
 
 \section{Jaky je obraz cisel $1, -1, j, \frac{1-j}{\sqrt{2}}$ pri stereograficke projekci?}
+Stereograficka projekce cisla $z=x+jy$ je dana vzorcem:
+$$\Phi = \left[ \frac{x}{x^2+y^2+1}; \frac{y}{x^2+y^2+1}; \frac{x^2+y^2}{x^2+y^2+1}\right] $$
+
+\subsection*{a) $z=1$}
+Tedy $x=1, y=0$. To dosadime do zmineneho vzorce a ziskame:
+$$\Phi = \left[ \frac{1}{2};0; \frac{1}{2}\right]$$
+
+\subsection*{b) $z=-1$}
+Tedy $x=-1, y=0$. To dosadime a ziskame:
+$$\Phi = \left[\frac{-1}{2};0;\frac{1}{2}\right]$$
+
+\subsection*{c) $z=j$}
+Tedy $x=0, y=1$:
+$$\Phi = \left[0;\frac{1}{2};\frac{1}{2}\right]$$
+
+\subsection*{d) $z= \frac{1-j}{\sqrt{2}}$}
+Tedy $x=\frac{1}{\sqrt{2}}, y= -\frac{1}{\sqrt{2}}$
+$$\Phi = \left[ \frac{\frac{1}{\sqrt{2}}}{\frac{1}{2}+\frac{1}{2}+1}; \frac{-\frac{1}{\sqrt{2}}}{\frac{1}{2}+\frac{1}{2}+1};\frac{\frac{1}{2}+\frac{1}{2}}{\frac{1}{2}+\frac{1}{2}+1}\right]$$
+$$\Phi = \left[ \frac{1}{2\sqrt{2}};-\frac{1}{2\sqrt{2}};\frac{1}{2}\right]$$
 
 
 
