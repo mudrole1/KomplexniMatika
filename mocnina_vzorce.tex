@@ -1,18 +1,47 @@
 \chapter{Reprezentace holomorfni funkce mocninou radou}
 
-\section{Motivace}
-%TODO
+\section*{Motivace}
 
-\section{Vzorce}
+Cilem je zde aproximovat (=nahradit) nejakou obecnou funkci (napr. sin z) mocninou radou, tedy nekolika mocninymi funkcemi. Mocnina funkce je napr. $z^2+1$, $z^4$ apod. Dulezite jsou dva body. Za prve, aproximace se deje pro urcity bod a presne plati jen pro nej. Nekdy se uvazuje male okoli bodu. (Zde by vam to mohlo pripominat linearizaci ze SAM ci ARI.) Druhym bodem je, ze aproximace je priblizna. Rozklad na mocnine funkce se rovna puvodni funkci jen pro nekonecno scitancu. A pozor! Toto lze pouze pro holomorfni funkci!
+
+\subsection*{K cemu je to dobre?}
+Toto se pouziva v pc pro generovani funkci, nikdy neni presna a dokonala, 
+jen je nahrazena urcitym poctem mocninych funkci. 
+Tak napriklad sin(z) ma vzorec: (pro rozvoj v bode 0)
+$$sin(z) = \sum_{n=0}^{\infty} (-1)^n \frac{z^{2n+1}}{(2n+1)!}$$
+Na parametr "n" lze pohlizet jako na miru toho, jak dana rada mocninych funkci odpovida puvodni funkci. 
+Pochopitelne v nekonecnu by se mely rovnat. 
+Ale v PC je promena "n" konecna v urcitem stupni, prekvapive malem.
+Setkala jsem se casto s maximalni hodnotou n=5.
+Promena $z$ je obecne komplexni. Ale pro nazornost prikladu predpokladejme, ze promena $z$ je pouze realna,
+tedy se jedna o klasickou funkci sinus, na kterou jsme zvykli.
+Kdyz to rozepiseme postupne jak je funkce reprezentovana:
+$$n=0$$
+$$t_0 = 1 \frac{z}{1}$$
+Zde tedy funkci sinus nahrazujeme linearni funkci! 
+Vidime, ze takovy stupen rozhodne nestaci k verne rekonstrukci fce sinus.
+$$n=1$$
+$$t_1 = -1 \frac{z^3}{3!}$$
+Zde se jiz jedna o komplikovanejsi funkci, ktera se pricte k puvodni linearni (ve vzorci je suma prvku!)
+Kdo si chce hrat, muze si tuhle funkci v matlabu vykreslit.
+Postupne se pridavaji dalsi prvky pro $n>2$ a funkce dostava presnejsi tvar a blizi se fci sinus. 
+
+Takze shrnuti myslenka - mocnine rady slouzi laicky k tomu reprezentovat nejakou slozitou funkci jako soucet prispevku jednodussich mocninych rad.
+Dulezite je, ze reprezentujeme \textbf{holomorfni funkci}, tedy takovou, ktera ma vsechny derivace v bode $z_0$. (v bode, ve kterem funkci aproximujeme)
+
+
+
+\section*{Vzorce}
 Mocnina rada se stredem v bode $z_0$:
 $$\sum_{n=0}^\infty a_n (z-z_0)^n = a_0 + a_1 (z-z_0) +a_2 (z-z_0)^2 + \dots$$
-Tedy se jedna o sumu ruznych polynomialnich funkci s promenou z a koeficienty $a_n$.
+Tedy se jedna o sumu ruznych polynomialnich funkci s promenou z a ruznymi koeficienty $a_n$ a se stejnym stredem konvergence v $z_0$.
 
-\subsection{Typy konvergence}
+
+\subsection*{Typy konvergence}
 \subsubsection*{Bodova}
 \begin{equation}
 \label{eq:bod_kon}
-Sm(z)-f(z)| \to 0 \; \operatorname{pro} \; n \to \infty
+|Sm(z)-f(z)| \to 0 \; \operatorname{pro} \; n \to \infty
 \end{equation} 
 
 \subsubsection*{Stejnosmerna}
@@ -20,22 +49,33 @@ Sm(z)-f(z)| \to 0 \; \operatorname{pro} \; n \to \infty
 \label{eq:ste_kon}
 \operatorname{sup}_{z \in M} |Sm(z)-f(z)| \to 0 \; \operatorname{pro} \; n \to \infty
 \end{equation}
+kde $S(z)$ je soucet mocnine rady. $Sm(z)$ se od $S(z)$ lisi malym cislem $\epsilon$ ve vsech bodech.
 
-\subsection{Kriteria pro urceni konvergence a jejiho polomeru $R$}
+Pozor na rozdily mezi temito typy konvergence! Stejnosmerna konvergence je silnejsi. Muze rada konvergovat (tedy bodove), ale stejnosmerne nemusi! Napr. pro $z^n$ je je stejnosmerne konvergence na kruhu o r=1, jinde ne!
+TODO: Pro presnejsi teorii skouknout skripta.
+
+\textbf{Weierstrasseovo kriterium pro stejnosmernou konvergenci}\\
+Plati-li $|f_n(z)|<a_n$ pro $z \in M$, kde $\sum_{n=0}^\infty a_n < \infty$, pak rada konverguje stejnosmerne na M.
+
+\subsection*{Kriteria pro urceni konvergence a jejiho polomeru $R$}
+
+$R = sup \{r \leq 0 | \sum_{n=0}^\infty |a_n|\cdot r^n < \infty \}$
 
 \subsubsection*{Odmocninove}
 \begin{equation}
 \label{eq:odm}
 \frac{1}{R} = \lim_{n \to \infty} \sqrt[n]{a_n}
 \end{equation}
-\subsubsection*{Podilove}
+\subsubsection*\\{Podilove}
 \begin{equation}
 \label{eq:pod}
 \frac{1}{R} = \lim_{n \to \infty} \frac{|a_{n+1}|}{|a_n|}
 \end{equation}
 \subsubsection*{Srovnavaci}
-%TODO: doplnit
-Rada konverguje pokud $\frac{1}{R} < 1$
+TODO: doplnit
+\vspace{0.5cm}
+
+Rada konverguje pokud $\frac{1}{R} < 1$ a jeji stred je bod $z_0$ (pro ktery rozvoj delame).
 
 \subsection*{Soucet rady}
 Pro specialni pripad rady (tzv. geometricka) $\sum_{n_0}^\infty z^n$ vime, ze jeji soucet se da vypocitat jako:
@@ -43,17 +83,75 @@ Pro specialni pripad rady (tzv. geometricka) $\sum_{n_0}^\infty z^n$ vime, ze je
 \label{eq:soucetr}
 S(z) = \frac{1}{1-z}
 \end{equation}
+Musi platit, ze $|z|<1$ pro zaruceni konvergence.
+
 Tedy, kdyz jsme dotazani na vypocet souctu rady, snazime se pouzit figle na to, jak tam najit podobnost prave s geometrickou radou. Tim padem pak muzeme pouzit tento vzorec. Figle jsou dva:
 \begin{itemize}
 \item Derivace rady - ale pozor, musime pak zintegrovat zpet soucet!
 \item Prechod k primitivni funkci (integrace) - ale pozor, musime pak zderivovat soucet!
 \end{itemize}
 
+\subsection*{Taylorovy rady}
+S temito radami jsme se setkali uz v matice drive. Je to konkretnejsi typ mocnine rady. Rika nam, jak aproximovat funkci v bode $z_0$, ale jen takovou, ktera ma vsechny derivace v tomto bode!
+Pak plati vzorec rozkladu na mocninou radu:
+\begin{equation}
+\label{eq:tayl}
+\sum_{n=0}^\infty \frac{f^{(n)}(z_0)}{n!}(z-z_0)^n
+\end{equation}
+kde $f^{(n)}(z_0)$ znamena n-ta derivace v bode $z_0$. 
+
+Nekdy jsme take dotazani v prikladech na spocitani koeficientu rady, tim se mysli $a_n$, tedy je to cast vzorce:
+$$a_n = \frac{f^{(n)}(z_0)}{n!}$$
+
+\textbf{TIP}: Kdyz jsme dotazani na rozvoj funkce, nemusime vzdy vyjit z definice Taylorovy rady. Muzeme i pouzit trik s rozkladem na parcialni zlomky a soucet geometricke rady. 
+
+\subsection*{Integralni vyjadreni koeficientu}
+
+Koeficienty $a_n$  lze take vyjadrit pouzitim Cauchyho vzorce:
+\begin{equation}
+\label{eq:cau_koef}
+a_n = \frac{1}{2\pi j} \int_c \frac{f(z)}{(z-z_0)^{n+1}}dz
+\end{equation}
+pro takovou krivku c: $c \subset \{ z| |z-z_0|<R\}$, tedy krivka $c$ obsahuje bod $z_0$ ve sve vnitrni oblasti.
+\vspace{0.5cm}
+ 
+Kdyz spojime tento vypocet koeficientu s vypoctem koeficientu pres Tayloruv rozvoj ziskame \textbf{Zobecnely Cauchyuv vzorec}:
+\begin{equation}
+\label{eq:cau_obecny}
+f^{(n)}(z_0) = \frac{n!}{2\pi j} \int_c \frac{f(z)}{(z-z_0)^{n+1}}dz
+\end{equation}
+pro $c$.. kladne orientovanou Jordanovu krivku.
+\vspace{0.5cm}
+
+A jeste se hodi trik \textbf{zamena sumy a integralu}. Pokud rada konverguje stejnosmerne, muzeme prohodit integral a sumu (vychazi z Weiestrassova kriteria).
+
+\subsection*{Leibnizova formule}
+\begin{equation}
+\label{eq:leib}
+(f(z)g(z))^{(n)} = \sum_{k=0}^n \left( \begin{array}{r}
+n\\ k
+\end{array} \right) f^{(k)}(z) g^{(n-k)}(z)
+\end{equation}
+
+\subsection*{Nasobeni mocninych rad}
+Dve funkce $f(z)$, $g(z)$ maji v bode $z_0$ tayloruv rozvoj:
+$$f(z) = \sum_{n=0}^\infty a_n (z-z_0)^n$$
+$$g(z) = \sum_{n=0}^\infty b_n (z-z_0)^n$$
+Pak $c(n) = f(z)\cdot g(z)$:
+\begin{equation}
+\label{eq:nasob}
+c(n) = \sum_{n=0}^\infty c_n (z-z_0)^n
+\end{equation}
+kde 
+$$c(n) = \sum_{k=0}^n a_k \cdot b_{n-k}$$
+Je to vlastne nasobeni dvou polynomu (kazdy clen s kazdym).
+
 \subsection*{\label{sec:rozviteFce} Uzitecne vzorecky}
+$$\lim_{n \to \infty} \sqrt[n]{n} = 1$$
 $$e^z = \sum_{n=0}^\infty \frac{z^n}{n!}$$
 $$sin(z) = \sum_{n=0}^\infty (-1)^n \frac{z^{(2n+1)}}{(2n+1)!}$$
 $$cos(z) = \sum_{n=0}^\infty (-1)^n \frac{z^{(2n)}}{(2n)!} $$
 $$ln(z) = \sum_{n=0}^\infty \frac{(-1)^{(n-1)}}{n}(z-1)^n$$
 $$arctg(z) = \sum_{n=0}^\infty (-1)^n \frac{z^{(2n+1)}}{2n+1}$$
 
-
+\newpage

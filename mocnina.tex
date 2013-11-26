@@ -1,5 +1,3 @@
-\chapter{Reprezentace holomorfni funkce mocninou radou}
-
 \section{Urcete kruh konvergence nasledujicich mocninych rad}
 
 \subsection{a) $\sum_{n=0}^{\infty} \frac{n}{2^n}(z-1)^n$}
@@ -12,15 +10,15 @@ Z toho $R=2$. Stred je takovy bod, pro ktery cast ze zadani $(z-1) =0$, tedy $S=
 $U(S,R) = U(1,2)$
 
 \subsection{b) $\sum_{n=0}^\infty \frac{n!}{n^n}z^n$}
-BLBEEEEE
-Pouziji podilove kriterium kvuli faktorialu, doufam, ze mi to pomuze :)
-$$\frac{1}{R} = \lim_{n \to \infty} \frac{a_{n+1}}{a_n} = \lim_{n \to \infty} \frac{\frac{(n+1)!}{(n+1)^{(n+1)}}}{\frac{n!}{n^n}} = \lim_{n \to \infty} \frac{\frac{(n+1)n!}{(n+1)^{(n+1)}}}{\frac{n!}{n^n}}$$
-Hura, pomohlo. $n!$ se zkrati!
-$$\frac{1}{R} = \lim_{n \to \infty} \frac{(n+1)n^n}{(n+1)^{(n+1)}}$$
-Upravim jmenovatel dle $a^{(n+1)} = a^1 a^n$:
-$$\frac{1}{R} = \lim_{n \to \infty} \frac{(n+1)n^n}{(n+1)(n+1)^n}$$
-Clen $(n+1)$ se zkrati, zbyde:
-$$\frac{1}{R} = \lim_{n \to \infty} \frac{n^n}{(n+1)^n}$$
+%BLBEEEEE
+%Pouziji podilove kriterium kvuli faktorialu, doufam, ze mi to pomuze :)
+%$$\frac{1}{R} = \lim_{n \to \infty} \frac{a_{n+1}}{a_n} = \lim_{n \to \infty} \frac{\frac{(n+1)!}{(n+1)^{(n+1)}}}{\frac{n!}{n^n}} = \lim_{n \to \infty} \frac{\frac{(n+1)n!}{(n+1)^{(n+1)}}}{\frac{n!}{n^n}}$$
+%Hura, pomohlo. $n!$ se zkrati!
+%$$\frac{1}{R} = \lim_{n \to \infty} \frac{(n+1)n^n}{(n+1)^{(n+1)}}$$
+%Upravim jmenovatel dle $a^{(n+1)} = a^1 a^n$:
+%$$\frac{1}{R} = \lim_{n \to \infty} \frac{(n+1)n^n}{(n+1)(n+1)^n}$$
+%Clen $(n+1)$ se zkrati, zbyde:
+%$$\frac{1}{R} = \lim_{n \to \infty} \frac{n^n}{(n+1)^n}$$
 
 TODO:DODELAT
 
@@ -136,3 +134,52 @@ $$sin(z) = \sum_{n=0}^\infty (j^{2n+1}(1 -(-1))\frac{z^{2n+1}}{2j(2n+1)!} $$
 Vyraz $j^{2n+1}$ rozlozim na $j^{2n}\cdot j$, coz jeste lze upravit jako $(j^2)^n j$ kdyz vim, ze $j^2=-1$, tedy cely vyraz $j^{2n+1} = (-1)^n j$, dosadim:
 $$sin(z) = \sum_{n=0}^\infty (-1)^n 2 j \frac{z^{2n+1}}{2j(2n+1)!} = \sum_{n=0}^\infty (-1)^n \frac{z^{2n+1}}{(2n+1)!} $$
 Coz presne odpovida vzorci v sekci \ref{sec:rozviteFce}.Tak tohle bylo jen zahrivaci kolecko. Ted zpatky k zadani, chteji zjistit rozvov v bode $z_0 = \frac{\pi}{4}$, tedy postupuje obdobne:
+$$sin(z) = \sum_{n=0}^\infty ((j^n e^{j\frac{\pi}{4}} -(-j)^{n}e^{-j\frac{\pi}{4}})\frac{(z-\frac{\pi}{4})^n}{2jn!}$$
+Vyraz $e^{j\frac{\pi}{4}}$ je vlastne exponencialni tvar komplexniho cisla. Tedy lze to prepsat na goniometricky tvar komplexniho cisla:
+$$e^{j\frac{\pi}{4}} = cos(\frac{\pi}{4})+jsin(\frac{\pi}{4})$$
+Kdyz zavzpominame na patricnou hodnotu (taky se hodi mit ve vzoreckach), dostaneme:
+$$e^{j\frac{\pi}{4}} = \frac{\sqrt{2}}{2} + j \frac{\sqrt{2}}{2}$$
+a to dosadime do mocnine funkce. Pozor! Pro $-j\frac{\pi}{4}$ je pred sinem minus.
+$$sin(z) = \sum_{n=0}^\infty \left((j^n (\frac{\sqrt{2}}{2} + j \frac{\sqrt{2}}{2}) -(-j)^{n}(\frac{\sqrt{2}}{2} - j \frac{\sqrt{2}}{2})\right)\frac{(z-\frac{\pi}{4})^n}{2jn!}$$
+Muzeme vytknout $j^n$:
+$$sin(z) = \sum_{n=0}^\infty j^n \left((\frac{\sqrt{2}}{2} + j \frac{\sqrt{2}}{2}) -(-1)^{n}(\frac{\sqrt{2}}{2} - j \frac{\sqrt{2}}{2})\right)\frac{(z-\frac{\pi}{4})^n}{2jn!}$$
+Dale muzeme vytknout $\frac{\sqrt{2}}{2}$:
+$$sin(z) = \sum_{n=0}^\infty j^n \frac{\sqrt{2}}{2} \left((1 + j) -(-1)^{n}(1 - j)\right)\frac{(z-\frac{\pi}{4})^n}{2jn!}$$
+Opet to tedka budeme resit zvlast pro liche a sude, protoze doufame, ze vyresenim clenu $(-1)^n$ se nam vyraz zjednodussi. Tedy pro sude (nahradime vsechny $n$ hodnotou $2n$ (schovana substituce)). Vyraz $(-1)^2n$ bude vzdy 1.
+$$sin(z) = \sum_{n=0}^\infty j^{2n} \frac{\sqrt{2}}{2} \left(1 + j -(1 - j)\right)\frac{(z-\frac{\pi}{4})^{2n}}{2j(2n)!} = \sum_{n=0}^\infty j^{2n} \frac{\sqrt{2}}{2} \left(2j\right)\frac{(z-\frac{\pi}{4})^{2n}}{2j(2n)!}$$
+Kde se zkrati $2j$ a take vime, ze $j^{2n} = (j^2)^n = (-1)^n$, tedy:
+$$sin(z) = \sum_{n=0}^\infty (-1)^{n} \frac{\sqrt{2}}{2}\frac{(z-\frac{\pi}{4})^{2n}}{(2n)!}$$
+Vyraz $\frac{\sqrt{2}}{2}$ lze take zapsat jako $\frac{1}{\sqrt{2}}$. Tak to prepisu kvuli kompatibilite meho vysledku se skripty. Ale lepsi je muj zapis s odmocninou nahore.
+$$sin(z) = \sum_{n=0}^\infty (-1)^{n} \frac{1}{\sqrt{2}}\frac{(z-\frac{\pi}{4})^{2n}}{(2n)!}$$
+Pro liche vyraz $(-1)^n$ bude $-1$, vsechn n nahradim $2n+1$:
+$$sin(z) = \sum_{n=0}^\infty j^{2n+1} \frac{\sqrt{2}}{2} \left(1 + j -(-1)(1 - j)\right)\frac{(z-\frac{\pi}{4})^{2n+1}}{2j(2n+1)!} = \sum_{n=0}^\infty j^{2n+1} \frac{\sqrt{2}}{2} \left(1 + j + 1 - j\right)\frac{(z-\frac{\pi}{4})^{2n+1}}{2j(2n+1)!}$$
+$$sin(z) = \sum_{n=0}^\infty j^{2n+1} \frac{\sqrt{2}}{2} 2 \frac{(z-\frac{\pi}{4})^{2n+1}}{2j(2n+1)!}$$
+Vyraz $j^{2n+1}$ se da prepsat jako $j^{2n}\cdot j = (j^2)^n \cdot j = (-1)^n \cdot j$, to tedy dosadime a jeste rovnou zkratime dvojky.
+$$sin(z) = \sum_{n=0}^\infty (-1)^n j \frac{\sqrt{2}}{2}  \frac{(z-\frac{\pi}{4})^{2n+1}}{j(2n+1)!}$$
+Dale zkratime j a take prepiseme vyraz $\frac{\sqrt{2}}{2}$ (opet jen pro kompatibilitu se zapisem ve skriptech.)
+$$sin(z) = \sum_{n=0}^\infty (-1)^n \frac{1}{\sqrt{2}}  \frac{(z-\frac{\pi}{4})^{2n+1}}{(2n+1)!}$$
+Kdyz srovname tento vysledek s vysledkem pro suda n, zjistime, ze cleny $a_n$ jsou stejne v obou pripadech. Nemusime tedy mit tedy vzorec zvlast pro sude a liche, ale spojime ho (je to schovana substituce, pro vyraz $2n$ nebo $2n+1$ prejdeme opet k n. Pozor! U vyrazu $(-1)^n$ se nam kvuli substituci $n$ zmeni na $\frac{n}{2}$
+$$sin(z) = \sum_{n=0}^\infty (-1)^\frac{n}{2} \frac{1}{\sqrt{2}}  \frac{(z-\frac{\pi}{4})^{n}}{(n)!}$$
+A hura! Mame hotovo. Jeste teda chteji urcit polomer konvergence. To je viz prvni cviceni, tak to tu ted preskocim.
+
+%TODO: dodelat konvergenci
+%TODO: ostatni
+
+\section{Je pravda, ze suda holomorfni funkce na okoli bodu 0 ma v mocninem rozvoji o stredu $z_0= 0$ pouze cleny se sudou mocninnou?}
+
+%TODO: udelat
+
+\section{Ukazte, ze funkce $f(z)$ je holomorfni na $\mathbb{C}$.}
+
+$$f(z) =\int_0^1 \frac{\operatorname{sin}(zt)}{t}dt$$
+
+\subsection{a) pomoci vety 4.6 ze skrip}
+%TODO: udelat
+
+%\subsection{b) nalezenim rozvoje v mocninou radu}
+%Pokud najdeme rozvoj v mocninou radou, je funkce holomorfni a opacne. Pro nalezeni mocnine rady nas stve integral, chteli bychom se ho zbavit, protoze nevime, jak ho prevest na radu. Tak celou funkci $f(z)$ zderivuji podle $t$, tedy mi to "sezere" integral. Upravim a na konci to az zintegruji. Tedy:
+%$$f'(z) = \frac{\operatorname{sin}(zt)}{t}$$
+%Jakmile ve funkci mame sin ci cos, hodne casto to prepiseme na soucet/rozdil exponencialnich funkci, ty se nam totiz dobre vzorce prevadi na mocnine rady. Nesmime zapomenout, ze v argumentu fce neni jen $z$, ale $zt$, tedy:
+%$$f'(z) = \frac{e^{jzt} - e^{-jzt}}{2jt} = \sum_{n=0}^\infty \frac{(j)^n t^n e^{jtz_0}}{2jtn!}(z-z_0)^n - \sum_{n=0}^\infty \frac{(-j)^n t^n e^{-jtz_0}}{2jtn!}(z-z_0)^n$$
+%Funkce by mela byt holomorfni na celem $\mathbb{C}$, my si ale bod $z_0$ zvolime chytre $z_0 = 0$. Obecne lze zvolit jakykoliv bod. Dosadim a ziskam:
+%$$f'(z) = \sum_{n=0}^\infty \frac{(j)^n t^n}{2jtn!}z^n - \sum_{n=0}^\infty \frac{(-j)^n t^n (-1)}{2jtn!}z^n$$

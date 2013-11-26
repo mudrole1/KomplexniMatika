@@ -1,0 +1,130 @@
+\chapter{Reprezentace holomorfni funkce Laurentovou radou}
+
+\section*{Motivace}
+
+Uz vime, (tusime :) ), jak holomorfni funkci aproximovat mocninou radou. Dulezity poznatek je vsak ten, ze mocnina rada konverguje na kruhu s polomerem konvergence R a stredem v $z_0$. Jenze puvodni holomorfni funkce je casto definovana i na jinych mnozinach (castech prostoru) nez je kruh, viz nasledujici priklad.
+
+Uvazujte funkci
+$$f(z) = \frac{1}{1-z}$$
+
+Tato funkce je holomorfni v mnozine $\mathbb{C} \setminus \{1 \}$ (pro bod $z=1$ neni definovana). Pokud nyni vyjadrime jeji rozvoj (napr Taylorem) v mocninou radu (uvazujme napr rozvoj pro $z_0 = 0$, tak ziskame:
+$$\frac{1}{1-z} = 1 + z + z^2 + z^3 + \dots = \sum_{n=0}^\infty z^n$$
+coz je geometricka rada.
+
+Pokud vyhodnotime polomer konvergence:
+$$\frac{1}{R} = \lim_{n \to \infty} \sqrt[n]{a_n} = \lim_{n \to \infty} \sqrt[n]{1} = 1$$
+Tedy rada konverguje pro takova $z$ lezici v kruhu o polomeru $R = 1$, tedy $|z|<1$. Pozor! Nepatri sem hranicni kruznice.
+
+Vidime tedy, ze rozvojem funcke do mocnine rady jsme ziskali aproximaci jen v tomto kruhu. Ale funkce je definovana a holomorfni i mimo nej krome bodu $z = 1$. Jak reprezentovat funkci mimo kruh? Zde neni mozno uz pouzit jen mocninou radu a pouzivame tedy Laurentovy rady.
+
+Tedy Laurentova rada je zobecnenim rady mocnine, tedy umoznuje aproximovat funkci radou na vetsich mnozinach (castech prostoru) nez je jenom kruh.
+\section*{Vzorce}
+
+\subsection*{Definice Laurentovy rady:} 
+\begin{equation}
+\label{eq:lau_def}
+\sum_{-\infty}^\infty a_n (z-z_0)^n
+\end{equation}
+Na prvni pohled to muze vypadat jako mocnina, ale pozor! $n$ zacina od minus nekonecna! (u mocninych od nuly). Tedy cast vypada jako:
+$$\dots + a_{-2} \frac{1}{(z-z_0)^2} + a_{-1}\frac{1}{z-z_0} + a_0(z-z_0)^0 + a_1(z-z_0)+ a_2 (z-z_0)^2 + \dots$$
+Bod $z_0$ se nazyva stredem konvergence.
+Laurentova rada ma hlavni cast (zaporne mocniny) a regularni cast (kladne mocniny, odpovida mocnine rade). Jeji konvergenci zapisujeme jako $P(z_0,r,R)$, kde $r$ je polomer konvergence hlavni casti, $R$ casti regularni. Z toho plyne, ze se muze stat, ze rada konverguje na mezikruzi (prostor mezi dvema kruhy).
+
+Specialni pripad:
+$$\sum_{-\infty}^\infty \frac{a_n}{z^n}$$
+Je Laurentova rada se stredem v nekonecnu ($z_0 = \infty$).
+
+\subsection*{Integralni vyjadreni koeficientu}
+Koeficienty $a_n$ lze vypocitat jako:
+\begin{equation}
+\label{eq:lau_koef}
+a_n = \frac{1}{2 \pi j} \int_{c} \frac{f(z)}{(z-z_0)^{n+1}}dz
+\end{equation}
+ kdy $c$ lezi v danem mezikruzi, kde rada konverguje.
+Tento vzorec se hodi pro priklady tipu "Urcete koeficient u mocniny $z^{18}$.
+
+\subsubsection*{Caychyuv vzorec pro mezikruzi}
+$c_1, c_2$ jsou kladne orientovane Jordanovy krivky, kdy plati, ze $c_1$ je uvnitr $c_2$, zapis: $c_1 < Int c_2$:
+\begin{equation}
+\label{eq:lau_cauch}
+f(z) = \frac{1}{2\pi j} \left( \int_{c_2} \frac{f(z)}{z-z_0}dz - \int_{c_1}\frac{f(z)}{z-z_0}dz \right)
+\end{equation}
+
+\subsection*{Singularity}
+Singularita je vlastne bod $z_s$, ve kterem fce neni holomorfni (ale radeji se mrknete na poradnou teorii). Rozeznavame:
+\begin{itemize}
+\item odstranitelna - jestlize existuje vlastni limita f v bode $z_s$. Vsechny cleny v hlavni casti Laurentovy rady jsou nulove (tedy zbyde jen mocnina rada)
+\item pol funkce - jestlize $lim_{z \to z_s} = \infty$, take urcujeme jeho rad $k$ (nasobnost). Laurentovy rada ma omezeny pocet prvku v hlavni casti. Cleny $a_{-k}, a_{-k+1}, atd$ ($n>=k$) jsou nenulove, vsechny koeficienty pro $n<k$ jsou nulove. 
+\item podstatna - jestlize f nema limitu v bode $z_s$ - nekonecne mnoho koeficientu v hlavni casti Leurentovy rady
+\end{itemize}
+
+Specialni pripad - nekonecno ($\infty$) je pol funkce f - f je holomorfni na prstencovem okoli nekonecna. 
+
+\subsection*{Reziduum}
+
+Reziduum je jenom "husty" nazev pro koeficient $a_{-1}$. Tento koeficient ma pekne vlastnosti a usnadnuje vypocet mnoha veci, viz dalsi kapitola.
+
+Obecne z integralniho vyjadreni vypoctu koeficientu ziskam:
+\begin{equation}
+\label{eq:rez_int}
+a_{-1} = \frac{1}{2\pi j} \int_c f(z) dz
+\end{equation}
+
+Pokud $z_0$ je pol o nasobnosti k, reziduum spocteme jako:
+\begin{equation}
+\label{eq:rez_polk}
+a_{-1} = res_{z_0} f(z) = \lim_{z \to z_0} \frac{1}{(k-1)!}\left[ (z-z_0)^k f(z)\right]^{(k-1)}
+\end{equation}
+kde $(k-1)$ znamena derivaci "k-1" krat.
+
+Pro pol nasobnosti 1:
+\begin{equation}
+\label{eq:rez_pol1}
+a_{-1} = res_{z_0} f(z) = \lim_{z \to z_0} (z-z_0)f(z)
+\end{equation}
+
+\subsubsection*{Vypocet rezidua pro nasobeni ci podil dvou funkci}
+f(z), g(z) jsou holomorfni v $z_0 \in \mathbb{C}$, $z_0$ je jednonasobny koren g(z) (koren znamena, ze pro tento bod se fce rovna nule, tedy vlastne cely zlomek dvou funkci je v ohrozeni timto korenem), pak plati:
+\begin{equation}
+\label{eq:rez_pod}
+rez_{z_0} \frac{f(z)}{g(z)} = \frac{f(z_0)}{g'(z_0)}
+\end{equation}
+
+f(z) holomorfni v $z_0$, g ma v $z_0$ jednonasobny pol, pak:
+\begin{equation}
+\label{eq:rez_nas}
+rez_{z_0} f(z)g(z) = f(z_0) \cdot rez_{z_0} g(z)
+\end{equation}
+
+\subsubsection*{Specialni pripady}
+
+Pro singularitu v nekonecnu, tedy $z_0 = \infty$
+\begin{equation}
+\label{eq:rez_nekon}
+\int_c f(z) dz = 2\pi j res_\infty f(z)
+\end{equation}
+
+Funkce f ma v nekonecnu odstranitelnou singularitu:
+\begin{equation}
+\label{eq:rez_nek_ods}
+rez_\infty f(z) = \lim_{z \to \infty} z^2 f'(z) = \lim z(f(\infty) - f(z))
+\end{equation}
+
+Funkce f ma v nekonecnu pol radu k:
+\begin{equation}
+\label{eq:rez_nek_polk}
+rez_\infty f(z) = \frac{(-1)^k}{(k+1)!}\lim_{z \to \infty} (z^{k+2} f(z)^{(k+1)})
+\end{equation}
+
+Odstranitelna singularita ve vlastnim bode - reziduum je nulove.\\
+Odstranitelna singularita v nevlastnim bode - reziduum libovolne.\\
+
+
+\subsection*{Ostatni}
+Uzitecne vzorecky:
+$$\operatorname{cos}(t) = \frac{z^2+1}{2z}$$
+$$\operatorname{sin}(t) = \frac{z^2-1}{2jz}$$
+kde $z = e^{jt}$
+
+TIP: Racionalni funkci (zlomek) rozlozime na parcialni zlomky v tvaru $\frac{A}{(z-a)^k}$, rozvineme fci $\frac{A}{z-a}$, a pak zderivujeme $k-1$ krat.
+
