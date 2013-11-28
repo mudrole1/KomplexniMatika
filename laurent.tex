@@ -1,0 +1,137 @@
+\section{Naleznete obor konvergence nasledujicich Laurentovych rad}
+\subsection{a) $\sum_{-\infty}^\infty \frac{1}{1+e^{-n}}z^n$}
+
+U laurentovych rad se konvergence vyhodnocuje zvlast pro hlavni a regularni cast, tedy sumu rozlozim na dve - jednu pro zaporna n a pro kladna n:
+$$\sum_{-\infty}^\infty \frac{1}{1+e^{-n}}z^n = \sum_{-\infty}^{-1} \frac{1}{1+e^{-n}}z^n + \sum_0^\infty \frac{1}{1+e^{-n}}z^n$$
+
+Konvergenci hlavni casti (zaporna n) chceme vyhodnotit jako u mocninych rad, abychom mohli pouzit stejne kriteria pro urceni konvergence a jejiho polomeru, ktera jsou definovana pro $\lim_{n \to \infty}$, tedy pro n jdouci ke kladnemu nekonecnu. Jenze ouha, zda mame zaporne nekonecno. Udelame teda figl prevedeme mezi na kladne, ale tim padem musime pred vsechna $n$ ve vzorci dat minus:
+$$ \sum_{-\infty}^{-1} \frac{1}{1+e^{-n}}z^n = \sum_1 ^\infty \frac{1}{1+e^{-(-n)}}z^{-n} = \sum_1 ^\infty \frac{1}{1+e^{n}}\frac{1}{z^n}$$
+Takto upravene meze uz vypadaji jako mocnina rada, ale co je potreba vzit v zretel, ze upravena rada, pro kterou jsme vyhodnocovali konvergenci, ma clen $\frac{1}{z^n}$, coz neni mocnina rada. My si tady udelame jeste pomyslnou nahradu: (je pomyslna, vratime se k tomu pozdeji).
+$$\frac{1}{z^n} = u^n$$
+
+Tak a ted pouzijeme nektere kriterium pro urceni polomeru konvergence z mocninych rad. Tady se hodi podilove.
+$$\frac{1}{r_p} = \lim_{n \to \infty} \frac{\frac{1}{1+e^{n+1}}}{\frac{1}{1+e^{n}}} = \lim_{n \to \infty} \frac{1+e^n}{1+e^{n+1}} = \lim_{n \to \infty} \frac{1+e^n}{1+e^{n}\cdot e} =$$
+Takova limita se resi obecne vytknutim co nejvyssi mocniny, ktera je jak v citateli a jmenovateli zlomku, (oni se pak zkrati). Take zlomek $\frac{1}{e^n}$ pro n jdouci k nekonecnu bude nula (protoze jmenovatel bude nekonecno).
+$$ = \lim_{n \to \infty} \frac{e^n}{e^n}\frac{\frac{1}{e^n}+1}{\frac{1}{e^n}+e} = \frac{1}{e}$$
+Tedy polomer konvergence:
+$$r_p = e$$
+Ale pozor, toto je polomer konvergence pro nasi pomyslnou $u^n$ radu. Tady se vratime v substituci a plati, ze:
+$$\frac{1}{z^n} = u^n$$
+Polomer konverge rady $u^n$ je $r_p$:
+$$\frac{1}{z^n} < r_p$$
+Tedy:
+$$\frac{1}{r_p} < z^n$$
+$$\frac{1}{e} < z^n$$
+Tedy polomer konvergence hlavni casti je $r = \frac{1}{e}$. Co je jeste dulezite miti na pamet, u mocninych rad rada konvergovala pro $z < R$. My jsme ale tu jeste na zacatku zmenili zaporne meze na kladne, coz zpusobuje to, ze hlavni cast laurentovy rady konverguje na vnejsku kruhu tvoreneho polomer $r$.
+
+Pro regularni cast je konvergence vyhodnocena jako pro mocninou radu bez zadnych dalsich uprav. Tedy:
+$$\frac{1}{R} = \lim_{n \to \infty} \frac{\frac{1}{1+e^{-n+1}}}{\frac{1}{1+e^{-n}}} = \lim_{n \to \infty} \frac{1+e^{-n}}{1+e^{-n}\cdot e} = $$
+Prepisi to jen pro vetsi nazornost, abych nemela zaporne exponenty:
+$$= \lim_{n \to \infty}  \frac{1+\frac{1}{e^n}}{1+\frac{e}{e^n}} =$$
+Tady nevytykam zadnou nejvyssi mocninu. Proc? Uz to mam ve tvaru zlomku (myslim ted $\frac{1}{e^n}$), kde v citateli mam konstatnu a ve jmenovateli $neco^n$, coz zpusobi, ze cely tento zlomek pri limite bude nulovy. A to je presne to, co chci. Aby zmizel a zjednodusilo se to, tedy:
+$$ = \frac{1}{1} = 1$$
+Tedy $R = 1$ (pozor, je to prevracena hodnota predchoziho vysledku, ale zde to zrovna vyslo jednoduse).
+
+Mame oba polomery konvergence a ted uz jen stred. Ten zjistime jednoduse zahledenim na zadani, ktere je v podobe $z^n$, neni tam zadny bod $z_0$ jako $(z-z_0)^n$... tedy bod $z_0 = 0$ a to je nas stred konvergence. 
+
+Laurentova rada tedy konverguje na takove prostoru, ktery je vetsi nez kruznice o polomeru $r$ a mensi nez kruznice o polomeru R, tedy nam to vytvari mezikruzi. Zapis vysledku je:
+$P=(0; \frac{1}{e}; 1)$
+
+\newpage
+
+\section{Naleznete Laurentovu radu, ktera konverguje}
+\subsection{a) prave v mezikruzi P(0,1,2)}
+Pro konvergenci laurentovy rady plati zapis $P(z_0, r, R)$, kde r je polomer hlavni (zaporne casti) a R je polomer regularni casti. 
+
+Mame zda nalezt jakoukoliv radu, nezalezi na funkci, jen musi konvergovat prave na zadem mezikruzi. Tedy obecne reseni je vice. To nejjednodussi a korespondujici s vysledky skript je nasledujici. Vyuzijeme znalosti geometricke rady, pro kterou plati:
+$$\frac{1}{1-z} = \sum_{n=0}^\infty z^n, \; R=1$$
+Pokud bychom chteli mit polomer $R=2$ vime, ze chceme dostat radu ve tvaru:
+$$\sum_n^\infty \frac{z^n}{2^n}$$
+protoze polomer R se spocte jako:
+$$\frac{1}{R} = \lim_{n \to \infty} \frac{\frac{1}{2^{n+1}}}{\frac{1}{2^n}} = \lim_{n \to \infty} \frac{2^n}{2^n\cdot 2} = \lim_{n \to \infty} \frac{2^n}{2^n} \frac{1}{2} = \frac{1}{2} $$
+z cehoz $R = 2$.
+
+Pokud bychom si vzali tayloruv rozklad a snazili se zpetne zjistit danou funkci, ziskali bychom, ze rada $\sum_n^\infty \frac{z^n}{2^n}$ odpovida funkci:
+$$\frac{1}{2-z}$$
+Nechceme to pocitat pokazde, ani ja to tu nepocitam... Je dobre si nekam zapsat, ze obecne fce $f(z)$ se prevede na geometrickou radu o polomeru R:
+$$f(z) = \frac{1}{R-z} = \sum_{n=0}^\infty \frac{z^n}{R^n}$$
+
+A prave teto znalosti, zde vyuzijeme. Pro regularni cast mame prakticky hotovo, jen to shrnu. Pozorujeme, ze polomer $R=2$ a jedna se o regularni cast, tedy ocekavame tvar $z^n$, funkce
+$\frac{1}{2-z}$ bude mit radu (kterou hledame):
+$$\sum_{n = 0}^\infty \frac{z^n}{2^n}$$
+
+Pro hlavni cast pozorujmee, ze $r = 1$ a pozor! Je to hlavni cast, tedy ocekavame zaporna n, tedy $z^{-n}$, tedy ocekvame tvar $\frac{1}{z}$!
+Tyto znalosti zkombinujeme do funkce:
+$$\frac{1}{r-\frac{1}{z}} = \frac{1}{1-\frac{1}{z}}$$
+Takova fce ma radu:
+$$\sum_{n=0}^\infty \left( \frac{1}{z} \right)^n = \sum_{n=0} ^\infty \frac{1}{z^n}$$
+Mozna matouci, proc jsou meze kladne.. protoze promena $z$ je ve jmenovateli. Kdybychom chteli, muzeme pak sumu prepsat jako:
+$$\sum_{-\infty}^0 z^n$$
+
+Takze vysledna laurentova rada, ktera konverguje na danem mezikruzi je:
+$$\sum_{n=0} ^\infty \frac{1}{z^n}+\sum_{n = 0}^\infty \frac{z^n}{2^n}$$
+
+\newpage
+
+\section{Naleznete Laurentovy rozvoje zadanych funkci v uvedenych oblastech}
+\subsection{a)}
+\subsection{b)}
+TODO: u a,b nejake nejasnosti v mem vypoctu
+
+\subsection{c) $\frac{3z}{(2z-1)(2-z)}$, v $P(0,\frac{1}{2},2)$}
+Kdyz se na to zadivame, vidime v tom jistou podobnost s funkci:
+$$\frac{1}{1-z}$$
+kterou krasne umime vyjadrit jako geometrickou radu a v prikladu 1 jsem ukazala, jak to pouzit pro popis hlavni a regularni casti. Tady to ale potrebujeme teda nejprve rozseknout na dva parcialni zlomky a co nejvice to priblizit do tvaru teto sikovne fce. Opakovani parcialnich zlomku - ve jmenovateli se nachazi dva cleny, je dobre, ze jsou v prvni mocnine, pro vetsi nasobnost je to trochu komplikovanejsi. Parcialni zlomky jsou to, ze jeden zlomek chceme roztrhnout na soucet vice zlomku (tolika kolik je clenu ve jmenovateli), tady na 2. Musime ale dopocitat citatele, aby nam soucet dal puvodni zlomek. Tedy v praxi:
+
+$$\frac{3z}{(2z-1)(2-z)} = \frac{A}{2z-1}+\frac{B}{2-z}$$
+
+Citatele novych zlomku maji vzdy o stupen mensi mocninu nez jmenovatel. Jelikoz ve jmenovateli je z v prvni mocnine, citatel bude jen konstanta. Jen pro uplnost, kdyby jmenovatel obsahoval clen $z^2$, pak by citatel musel byt v podobe $Az+B$ a druhy zlomek by zacinal od pismene C, atd.
+
+Opakovani scitani zlomku, plati obecne, ze:
+$$\frac{c_1}{j_1}+\frac{c_2}{j_2} = \frac{c_1\cdot j_2 + c_2\cdot j_1}{j_1 \cdot j_2}$$
+
+Tedy v nasem pripade chceme, aby platilo, ze:
+$$A(2-z)+B(2z-1) = 3z$$
+Tedy roznasobime:
+$$2A - Az + 2Bz - B = 3z$$
+a porovname cleny se stejnou mocninou z, tedy pro z v prvni mocnine:
+$$-A + 2B = 3$$
+Pro z v nulte mocnine (tedy konstanty)
+$$2A-B = 0$$
+Dostali jsme dve rovnice o dvou neznamych. Jakmile bychom dostali treba 3 rovnice o 2 neznamych, spatne jsme nahradili citatele (malou mocninou z). 
+
+Vyresime soustavu, treba vytkneme z druhe rovnice B:
+$$B = 2A$$
+a dosadime do prvni:
+$$-A + 2(2A) = 3$$
+$$3A = 3$$
+$$A = 1$$
+to dosadime do B:
+$$B = 2A = 2$$
+
+Tedy jsme nasi puvodni funkci rozlozili na parcialni zlomky:
+$$\frac{3z}{(2z-1)(2-z)} = \frac{1}{2z-1}+\frac{2}{2-z}$$
+To uz zacina vypadat jako nase sikovna funkce. Ted je potreba si uvedomit, ktera cast ma reprezentovat hlavni a ktera regularni cast. To jde poznat podle znamenka minus pred promenou z... pro regularni cast by pred z melo byt minus (aby to vypadalo jako fce $\frac{1}{1-z}$), pro hlavni cast chceme + pred z, protoze pak nam to sikovne prejde do jmenovatele, viz ukazka na prikladu.
+
+Tedy vidime, ze prvni zlomek nam reprezentuje v nasem pripade hlavni cast (budeme se tam snazit dostat $\frac{?}{z}$) a druhy regularni cast (budeme se tam snazit mit $?z$). Dulezite je mit jmenovatel ve tvaru $1-$"promena z", kde "promena z", reprezentuje oba pripady. 
+
+Tedy pro nas priklad, z prvniho zlomku vytknu 2z, abych na prvni pozici dostala $1$ a pak zlomek se $z$ ve jmenovateli (hlavni cast). Pro druhy zlomek vytknu $2$, abych na prvni pozici dostala $1$ a pak $neco \dot z$ (regularni cast).
+$$ = \frac{1}{2z-1}+\frac{2}{2-z} = \frac{1}{2z \left( 1 - \frac{1}{2z}\right)}+\frac{2}{2 \left( 1-\frac{z}{2}\right)} =$$
+Ted by melo byt zrejme, proc pro hlavni cast, chceme + pred z (protoze vlastne konstanta s - pred ni prejde na zlomek se z ve jmenovateli)
+
+V druhem zlomku se mohou zkratit dvojky. V takto upravenych zlomcich uz vime, jak je prevest na radu, tedy:
+$$ = \frac{1}{2z} \sum_{n=0}^\infty \left( \frac{1}{2z}\right)^n + \sum_{n=0}^\infty \left(\frac{z}{2}\right) ^n = $$
+Za povsimnuti stoji, ze co je v 1.zlomku vytknuto pred zavorku, zustane pred sumou. Dale jen udelam kosmetickou upravu, ze umocnim zavorky:
+$$=\frac{1}{2z} \sum_{n=0}^\infty \frac{1}{2^n z^n} + \sum_{n=0}^\infty \frac{z^n}{2^n} =$$
+A jeste na zaver pozoruji, ze co je pred 1.sumou, muzu soupnout dovnitr (pri nasobeni se exponenty scitaji, tedy):
+$$ = \sum_{n=0}^\infty \frac{1}{2^{n+1} z^{n+1}} + \sum_{n=0}^\infty \frac{z^n}{2^n} = $$
+
+Coz samo o sobe je pekny vysledek, ale jeste ho muzeme zhezcit :) Pozorujeme, ze obe sumy jsou si podobne, a tak se budeme snazit to dostat na sumu od $-\infty$ do $\infty$. V prvnim kroku pozorujeme, ze obe sumy zacinaji od nuly. To nam dela problemy, protoze nemuzeme mit v jedne finalni sume nulu dvakrat. Ale tady vyuzijeme pomyslne substituce $m=n+1$, kam kdyz dosadim dolni mez pro $n=0$, tak dostanu dolni mez $m=1$. Substituce se v radech malicko "prasi" a pise se porad stejna promena, tedy na misto nove promene $m$ napisu $n$, ale vsechno je zmeneno jako pro $m$, tedy:
+$$ = \sum_{n=1}^\infty \frac{1}{2^{n} z^{n}} + \sum_{n=0}^\infty \frac{z^n}{2^n} = $$
+V dalsim kroku zmenim meze u prvni rady na zaporne a musim napsat tedy minus pred $n$. Tady se ve skriptech objevuje absolutni hodnotu u $2^{|n|}$, ocividne proto, aby to zustalo ve jmenovateli a bylo to stejne jako v druhe rade. Uplne ale uprimne nevim, zda je to matematicky koser, ale ve skriptech to tak je :D
+$$ = \sum_{-\infty}^{-1} \frac{1}{2^{|n|} z^{-n}} + \sum_{n=0}^\infty \frac{z^n}{2^{|n|}} = $$
+Coz se jen kosmeticky prepise na:
+$$ = \sum_{-\infty}^{-1} \frac{z^n}{2^{|n|}} + \sum_{n=0}^\infty \frac{z^n}{2^{|n|}} = $$
+Coz se da spojit na vyslednou jednu sumu:
+$$ = \sum_{-\infty}^\infty \frac{z^n}{2^{|n|}}$$
+A mame hotovo!
