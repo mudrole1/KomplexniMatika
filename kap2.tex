@@ -1,0 +1,96 @@
+\chapter{Zakladni pojmy analyzy v $\mathbb{C}$}
+
+\section*{Vzorce}
+\begin{itemize}
+\item otevrena mnozina $G$ - s kazdym svym bodem $z \in G$ obsahuje i jiste jeho okoli (takze receno normalne, nejde rici, kde presne je hranice, protoze okoli je nedefinovane velke/male)
+\item hranicni bod mnoziny M - pro kazde okoli $u(z,\varepsilon)$ plati:
+$$u(z,\varepsilon) \bigcap M \neq 0 \wedge u(z,\varepsilon) \bigcap ( \mathbb{C} \backslash M) \neq 0$$
+(tedy okoli hranicniho bodu $z$ nelezi ani v mnozine $M$, ani ve zbytku prostoru (tedy $\mathbb{C}\backslash M$), ucitel to vysvetloval, jako by ten bod byl rozkroceny, jednou nohou v M, jednou nohou venku... ale cely nepatri nikam
+\item hranice = mnozina vsech hranicnich bodu
+\item uzaver $\bar{M}$ mnoziny $M$ je definovan jako $M \bigcup \delta M$
+\item pro uzavrene mnoziny plati, ze $M = \bar{M}$
+\item priklady: $\emptyset, \mathbb{C}$ - otevrena mnozina
+\item nesouvisla mnozina $M$ - existuji 2 disjunktni (nemaji prunik) otevrene mnoziny takove, ze pokryji mnozinu $M$ a neprekryvaji se
+\item oblast - souvisla otevrena mnozina
+\item konvexni mnozina - kazde 2 body lze spojit useckou, ktera lezi v mnozine (tedy kruh, ctverec, ale ne srdce!)
+\item jednoznacne souvisla mnozina - stereograficka projekce mnoziny na riemanovu sferu ma souvisly doplnek (tedy zbytek na kouli je souvisly)
+\end{itemize}
+
+\newpage
+
+\section{Overte, ze plati:}
+\subsection{a) $|e^z| = e^{Re(z)}$}
+Hratky s upravami, komplexni promenou $z$ muzu nahradit $z = x+jy$:
+$$|e^{x+jy|}=$$
+Scitani exponentu znamena nasobeni zakladu, tedy to muzu roztrhnout na dva cleny:
+$$=|e^x \cdot e^{jy}|=$$
+protoze je mezi cleny nasobeni, muzeme absolutni hodnotu roztrhnout na dve:
+$$=|e^x|\cdot |e^{jy}| = $$
+Ve clenu $e^{jy}$ vidime cast komplexniho cisla v exponencialnim tvaru. V tomto tvaru je velikost cisla dana pred exponentem, ale tady zadny dalsi clen neni, resp je tam jedna. Tedy velikost tohoto komplexniho cisla je 1, plati tedy ze:
+$$=|e^x| \cdot 1 =$$
+A velikost $e^x$ je to same (je to jen realna slozka, neni to komplexni cislo! Tedy:
+$$= e^x$$
+A my jsme tu pismenem $x$ oznacovali realnou slozku, tedy rovnost ze zadani plati.
+
+
+\subsection{b) $\lim_{z \to \infty} e^z$ neexistuje}
+Posleme nekonecno nejdriv po realne ose, a pak po imaginarni. Kdyz by limity byly stejne, dostali jsme se do stejneho "bodu", tedy limita je. Kdyz limity budou jine, takova limita neexistuje. Tedy po realne ose:
+$$\lim_{x \to \infty} e^z = \lim_{x \to \infty} e^{x+jy} = lim_{x \to\infty} e^x \cdot e^{jy} = \infty$$
+Kdyz $x$ posleme k nekonecnu, tak $e^x$ bude nekonecno krat cokoliv je zase nekoneno.
+
+Po Imaginarni ose:
+$$\lim_{y \to \infty} e^z = \lim_{y \to \infty} e^x \cdot e^{jy} =$$
+Pozor! Tvar $e^{jy}$ je tvar komplexniho cisla v exponencialnim tvaru, muzeme to teda rozepsat jako:
+$$= lim_{y \to \infty} e^x (\operatorname{cos}(y)+j\operatorname{sin}(y))$$
+Pri tomto rozpisu vidime, ze hodnota $y$ se promita do vysledku periodicky. Kdyz si vezmete klasickou peridickou funkci cos, ci sin, tak pro nekonecnou hodnotu argumentu je hodnota v intervalu $<-1;1>$ Tedy i kdyz to prenasobime hodnotou $e^x$, ktera je omezena, takze limita celkova je taky omezena. 
+
+Tedy vidime, ze limity se nerovnaji, tedy celkova limita neexistuje.
+
+\subsection{c) $e^{\operatorname{Ln}(z)} = z$}
+V exponentu je funkce $\operatorname{Ln}(z)$, vsimnte si, ze to je logaritmus s velkym L, takova funkce se rovna (pokud nemate jeste na tahaku, tak pripsat!)
+$$\operatorname{Ln}(z) = ln|z|+j\operatorname{arg}z+2k\pi j$$, tedy fce ma realnou a imaginarni cast a navic je periodicka. Dosadime do zadani:
+$$e^{\operatorname{Ln}(z)} = e^{ln|z|+j\operatorname{arg}z+2k\pi j} = e^{ln|z|}\cdot e^{j\operatorname{arg}z}\cdot e^{2k \pi j}$$
+
+Vyresime postupne clen po clenu. Prvni clen $e^{ln|z|}$, exponencialni funkce je opacna k prirozenemu logaritmu. Tedy se to zaroven "vykrati" a zbyde jen $|z|$. Druhy clen: $\operatorname{arg}z$ znamena argument komplexniho cisla $z$, tedy muzeme oznacit i jako $\varphi$.  Tedy to muzeme zapsat jako vyraz $e^{j\varphi}$. Treti vyraz je $e^{jn}$, kdy $n = 2k \pi$, tedy opet exponencialni tvar komplexniho cisla. Kdyz to rozepiseme, tak je to:
+$$e^{j2k\pi} = \operatorname{cos}(2k\pi)+j \operatorname{sin}(2k\pi)$$,
+kdy $k$ je cele cislo, tedy cosinus se rovna 1, sinus 0 (pro uhel $2\pi$ a jeho cele nasobky). Tedy cely treti clen se rovna 1. Kdyz vsechny mezivysledky spojime do jednoho, ziskame:
+
+$$e^{\operatorname{Ln}(z)} = |z|\cdot e^{j\varphi} \cdot 1 = |z|\cdot e^{j\varphi}$$
+Coz je exponencialni tvar komplexniho cisla a jde to tedy prepsat na:
+$$e^{\operatorname{Ln}(z)} = z$$
+Tedy rovnost ze zadani plati.
+
+\subsection{d) $e^{\frac{1}{2}\cdot \operatorname{Ln}(z)} = \sqrt{z}$}
+
+Nasobeni exponentu je mocneni zakladu, tedy to muzeme prepsat jako:
+
+$$e^{\frac{1}{2}\cdot \operatorname{Ln}(z)} = \left( e^{\operatorname{Ln}(z)} \right)^\frac{1}{2} = $$
+Z prikladu vyse, vime, ze $e^{\operatorname{Ln}(z)} = z$, tedy to dosadime:
+$$= (z)^\frac{1}{2} = $$
+a exponentu $\frac{1}{2}$ se prepise jako odmocnina, tedy:
+$$ \sqrt{z}$$
+A tedy opet rovnost plati.
+
+\subsection{e) $\operatorname{sin}^2(z) + \operatorname{cos}^2(z) = 1$}
+
+V tahaku byste meli mit vzorecek na prepis sinu a kosinu, ale pozor s komplexnim argumentem, tedy se to da prepsat jako:
+$$\left( \frac{e^{jz}-e^{-jz}}{2j} \right)^2 + \left( \frac{e^{jz}+e^{-jz}}{2}\right)^2 = \frac{e^{2jz}-2e^{jz}e^{-jz}+e^{-2jz}}{4j^2}+\frac{e^{2jz}+2e^{jz}e^{-jz}+e^{-2jz}}{4}=$$
+V prnim jmenovateli je clen $j^2 = -1$, tedy zmenime znamenka v citateli prvniho zlomku. Oba jmenovatele budou uz jen $4$, tedy to muzeme napsat na spolecny jmenovatel:
+$$= \frac{-e^{2jz}+2e^{jz}e^{-jz}-e^{-2jz}+e^{2jz}+2e^{jz}e^{-jz}+e^{-2jz}}{4} = \frac{4e^{jz}e^{-jz}}{4} = e^{jz-jz} = e^0 = 1$$
+Opet jsme dokazali, ze rovnost plati.
+
+\subsection{f) $\operatorname{sin}(2z) = 2\cdot \operatorname{sin}z \cdot \operatorname{cos}z$}
+Tady zacneme s pravou stranou (je to jednodussi), pouzijeme stejne rozkladove vzorce jako v predchozim prikladu:
+$$2\cdot \operatorname{sin}z \cdot \operatorname{cos}z = 2\cdot \frac{e^{jz}-e^{-jz}}{2j} \cdot \frac{e^{jz}+e^{-jz}}{2} = $$
+Protoze citatele maji tvar $(a-b)(a+b)$ muzeme pouzit vzorec:
+$$(a-b)(a+b) = a^2 - b^2$$
+Tedy: (jeste se zkrati dvojky)
+$$ = \frac{e^{2jz - e^{-2jz}}}{2j} $$
+
+Pro levou stranu funkce $\operatorname{sin}(2z)$ lze rozepsat pomoci stejneho rozkladove vzorce, jen musime dat pozor na jiny argument $2z$! Tedy leva strana:
+$$\operatorname{sin}(2z) = \frac{e^{j2z}-e^{-j2z}}{2j}$$
+
+Vidime, ze prava i leva strana se rovnaji, dokazali jsme zadani.
+
+
+
