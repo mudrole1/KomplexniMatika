@@ -125,8 +125,145 @@ Funkci musime nejprve rozlozit, abychom videli koreny, tedy: (koreny najdeme pol
 $$\int_C \frac{1}{(z+3j)(z-3j)}$$
 Vidime, ze funkce ma dva poly, musime tedy resit 4 pripady:
 \begin{enumerate}
-\item Krivka $C$ ma bod $z_1=3j$ uvnitr
-\item Krivka $C$ ma bod $z_2=-3j$ uvnitr
+\item Krivka $C$ ma bod $z_0=3j$ uvnitr
+\item Krivka $C$ ma bod $z_0=-3j$ uvnitr
 \item Krivka $C$ nema ani jeden z polu uvnitr
 \item Krivka $C$ ma oba poly uvnitr
 \end{enumerate}
+Opet pouzijeme Cauchyho vzorec, \ref{eq:cauchyho}. 
+
+\subsection*{Za 1.: $z_0=3j$ uvnitr krivky.}
+
+Pointa je, ze funkce $f(z)$ musime prevest do tvaru $\frac{f_n(z)}{(z-z_0)}$, tedy v nasem pripade: $\frac{f_n(z)}{(z-3j)}$, kde $f_n(z)$ oznacuje novou funkci. Vysledek pak bude $2\pi j f_n(z_0)$.
+Tedy:
+$$\int_C \frac{1}{(z+3j)(z-3j)} = \int_C \frac{\frac{1}{z+3j}}{z-3j} = 2 \pi j \frac{1}{z_0 +3j} = 2 \pi j \frac{1}{3j+3j} = 2 \pi j \frac{1}{6j} = \frac{\pi}{3}$$
+
+\subsection*{Za 2.: $z_0 = -3j$ uvnitr krivky.}
+Postupuje stejne, jako v prvnim bode:
+$$\int_C \frac{1}{(z+3j)(z-3j)} = \int_C \frac{\frac{1}{z-3j}}{z-(-3j)} = 2\pi j \frac{1}{-3j -3j} = 2\pi j \frac{1}{-6j} = -\frac{\pi}{3}$$
+
+\subsection*{Za 3.: zadny pol nelezeni uvnitr krivky.}
+Tedy $z_0$ lezi vne krivky, pouzijeme Cauchyho vetu, z ktere plyne, ze takovy integral je nulovy, tedy zapsano:
+$$\int_C \frac{1}{(z+3j)(z-3j)} = 0 $$
+
+\subsection*{Za 4.: oba poly lezi uvnitr krivky.}
+Cauchyho vzorec je pouze pro jeden pol $z_0$, musime tedy funkci roztrhnout na dve funkce se svymi jednonasobnymi poly. K tomu nam skvele poslouzi parcialni zlomky:
+$$\frac{1}{(z+3j)(z-3j)} = \frac{A}{z+3j} + \frac{B}{z-3j}$$
+Ve jmenovateli jsou patricne koreny a citatele musime dopocitat, aby rovnost platila. Nutno podotknout, ze citatel ma vzdy o stupen mene nez jemnovatel. Tedy v nasem konkretnim pripade je menovatel stupne 1 (promena $z$ je jen na prvni), tedy v citateli staci konstanta. Kdyby v jmenovateli bylo $z^2$, citatel by musel mit tvar $Az+B$.
+
+Vyjdeme ze znalosti, ze pro soucet dvou zlomku plati:
+$$\frac{a}{b}+\frac{c}{d} = \frac{ad+bc}{bd}$$
+tedy v nasem pripade musi platit:
+$$\frac{A(z-3j)+B(z+3j)}{(z+3j)(z-3j)} = \frac{1}{(z+3j)(z-3j)}$$
+Porovnavame citatele:
+$$Az -3jA + Bz + 3jB = 1$$
+Porovname patricne stupne dle promene $z$:
+
+Pro z: $A+B = 0$
+
+Pro konstanty: $-3jA + 3jB = 1$
+
+Z prvni rovnice dosadim do druhe:
+$$-3jA + 3j(-A) = 1$$
+$$-6jA = 1$$
+$$A = -\frac{1}{6j}$$
+$$B = -A = \frac{1}{6j}$$
+
+Tedy jsme ziskali, ze:
+
+$$\frac{1}{(z+3j)(z-3j)} = \frac{-\frac{1}{6j}}{z+3j} + \frac{\frac{1}{6j}}{z-3j}$$
+
+A tedy krivkovy integral muzeme roztrhnout na dva:
+$$\int_C \frac{1}{(z+3j)(z-3j)}  = \int_C \frac{-\frac{1}{6j}}{z+3j} + \int_C \frac{\frac{1}{6j}}{z-3j}$$
+
+A pouzijeme opet Cauchyho vzorec. Je potreba ale dat pozor, co je bod $z_0$ pro dany integral. Pro prvni bychom ve jmenovateli meli mit tvar $z-z_0$, tedy vidime, ze to musime upravit $z+3j = z - (-3j)$. Pro prvni integral je tedy $z_0 = -3j$, pro druhy $z_0 =3j$. Ovsem funkce, kam bychom meli dosadit je jen $\frac{1}{6j}$, tedy neni kam bod $z_0$ dosadit. (protoze ho dosazujeme za promenou z) Tedy:
+
+$$\int_C \frac{1}{(z+3j)(z-3j)} = 2\pi j\left( -\frac{1}{6j}\right) + 2\pi j \frac{1}{6j} = 0$$
+
+\newpage
+
+\section{Necht P(z) je polynom $P(z) = (z-z_1)(z-z_2)\dots(z-z_n)$, kde $z_1, z_2 \dots z_n$ jsou navzajem ruzna cisla. Jaky je maximalni mozny pocet ruznych hodnot integralu $\int_C \frac{1}{P(z)}$?}
+
+Muzeme na toto jit postupne:
+\begin{itemize}
+\item n=1: mame moznost, ze bod $z_1$ lezi uvnitr nebo vne krivky, tedy mame 2 ruzne hodnoty.
+\item n=2: Tuto moznost jsme videli na predchozim priklade. Prakticky jsou 4 kombinace, ale dulezite je zde, ze se nas ptaji na \textbf{ruzne} hodnoty. Zde si uplne nejsem jista oduvodnenim v teorii (TODO: zde by to chtelo rozsirit), ale vec, se ma tak, ze kdyz je funkce zadana ve tvaru $\frac{K}{f_n(z)}$, tedy v citateli je nejaka konstanta $k$ a pouze jmenovatel obsahuje promenou $z$, tak pripad, kdy krivka obsahuje vsechny poly, vyjde vzdy \underline{nulovy}, tedy stejna hodnota jako pro pripad, kdy krivka neobsahuje zadny pol. Tedy zde jsou jen maximalne 3 ruzne hodnoty.
+\item n=3: Obdobne jako predchozi pripad. Je moznych 8 kombinaci, ale pripady, kdy krivka neobsahuje ani jeden pol, nebo vsechny, jsou nulove, tedy nejsou ruzne a mame jen 7 kombinaci.
+\end{itemize}
+
+Vysledek je tedy, ze:
+\begin{itemize}
+\item n=1: $2$ pripady
+\item n>1: $2^{n-1}$ pripadu
+\end{itemize}
+
+\newpage
+
+\section{Necht $C$ je uzavrena jednoducha kladne orientovana krivka neprochazejici body $\pm ja, \; a>0$. Zjistete vsechny hodnoty integralu $\int_C \frac{e^z}{(z^+a^2}$}
+
+Tady postupujeme opet jako u prikladu 4. Nejrpve funkci rozlozime, abychom videli poly:
+$$\int_C \frac{e^z}{(z^+a^2} = \int_C \frac{e^z}{(z+ja)(z-ja)}$$
+
+Mame dva poly, budeme resit 4 pripady:
+\begin{itemize}
+\item Oba koreny vne krivky: Z cauchyho vety plyne, ze integral je nulovy.
+\item $z_0 = ja$ uvnitr krivky sam: Postup jako u prikladu 4., upravim:
+$$\int_C \frac{e^z}{(z+ja)(z-ja)} = \int_C \frac{\frac{e^z}{(z+ja)}}{z-ja} = 2\pi j \frac{e^{z_0}}{z_0+ja} = 2\pi j \frac{e^{ja}}{ja+ja} = \frac{\pi e^{ja}}{a}$$
+\item $z_0 = -ja$ uvnitr krivky sam: 
+$$\int_C \frac{\frac{e^z}{(z-ja)}}{z-(-ja)} = 2\pi j \frac{e^{-ja}}{-ja-ja} = -\frac{\pi e^{-ja}}{a}$$
+Zde je mala chybka ve vysledkach ve skriptech.
+\item Oba poly uvnitr krivky. Zde to neni primitivni (jako u prikladu 5), v citateli neni konstanta! Resime rozkladem na parcialni zlomky, jen funkce $e^z$ nas tam stve a motala by se v parcialnich zlomkach, a tak budeme resit rozklad $\frac{1}{(z+ja)(z-ja)}\cdot e^z$, tedy exponencialni fci dame bokem, a pak kazdy parcialni zlomek tim prenasobime.
+
+Tedy resime:
+$$\frac{1}{(z+ja)(z-ja)} = \frac{A}{z+ja} + \frac{B}{z-ja}$$
+Pro nalezeni $A, B$ muzeme postupovat jako u prikladu 4, a nebo zkracene a to tak: Pro nalezeni konstanty $A$ je problemovy bod (koren jmenovatele) $-ja$. Tedy si v puvodnim zlomku zakryjte prstem celou zavorku $(z+ja)$ a do zbytku za $z$ dosadte prave $-ja$. Dostanete, ze:
+$$A = \frac{1}{-2ja}$$
+Obdobne, pro $B$ je problemovy bod $ja$, tedy si zakryjte zavorku $(z-ja)$ puvodniho zlomku a dosadte, dostanete, ze:
+$$B = \frac{1}{2ja}$$
+Ve vysledku jsme ziskali, ze:
+$$\frac{e^z}{(z+ja)(z-ja)} = \left( \frac{\frac{1}{-2ja}}{z+ja} + \frac{\frac{1}{2ja}}{z-ja} \right) \cdot e^z = \frac{\frac{e^z}{-2ja}}{z+ja} + \frac{\frac{e^z}{2ja}}{z-ja} $$
+
+A tedy krivkovy integral pro takto upravenou funkci muzeme resit na dvakrat:
+$$\int_C  \frac{\frac{e^z}{-2ja}}{z+ja} + \int_C \frac{\frac{e^z}{2ja}}{z-ja} = 2\pi j \frac{e^{-ja}}{-2ja} + 2\pi j \frac{e^{ja}}{2ja} = -\frac{\pi e^{-ja}}{a}+ \frac{\pi e^{ja}}{a} =$$
+Vytknu a prohodim poradi, protoze v tom vidim jistou podobnost s rozkladem funkce sinus ($\operatorname{sin}z = \frac{e^{jz} - e^{-jz}}{2j}$).
+ $$ = \frac{\pi}{a} (e^{ja}-e^{-ja})$$
+ Jen pro podobnost s fci sinus mi tam schazi $2j$, ale muzu tam dopsat zlomek $\frac{2j}{2j}$, coz je vlastne jednicka, takze tam nic nepridam. Tohle je jeden z matematickych tricku.
+ $$ = \frac{\pi}{a} (e^{ja}-e^{-ja}) \cdot \frac{2j}{2j}$$
+ A ted to uz muzu prevest na sinus:
+ $$ = \frac{\pi 2j}{a} \operatorname{sin}(a)$$
+\end{itemize}
+A mame hotovo.
+
+\newpage
+
+\section{Necht $f(z) = \int_{-1}^1 \frac{1}{t-z} dt$ pro $z \in \mathbb{C} \backslash [-1,1]$.}
+
+Nejprve vypocteme funkci a to nasledovne. Integral budeme resit substituci:
+$$t-z = u$$
+$$dt = du$$
+Prepoctu i meze!
+$$f(z) = \int_{-1}^1 \frac{1}{t-z} dt = \int_{-1-z}^{1-z} \frac{1}{u} du =$$
+Opet z prvaku si pamatujeme, ze tohle je vzorec pro prirozeny logaritmus. Kdyztak si to pripiste na tahak nekam, tedy:
+$$ = \left[ ln_0 u \right]_{-1-z}^{1-z} =$$
+\textbf{Pozor!} K prirozenemu logarimu jsem dopsala $_0$, to oznacuje hlavni vetev komplexniho logaritmu. Musime pracovat s komplexnim logartimem, protoze promena $z$ vyskytujici se v substituci je komplexni, tedy i promena $u$ musi byt komplexni.
+
+Dosadim meze:
+$$ = ln_0(1-z) - ln_0 (-1-z) = $$
+V dalsim kroku mohu rozepsat hlavni vetev logaritmu podle tahaku:
+$$ = ln |1-z| + j \operatorname{arg}(1-z) - (ln|-1-z| + j \operatorname{arg}(-1-z)) = $$
+Odstranim zavorku a take pozoruji, ze velikost $|1-z|$ a $|-1-z|$ jsou stejne, tedy logaritmy (zde uz realne) se odectou a zbyde jen:
+$$ = j \operatorname{arg}(1-z) -j \operatorname{arg}(-1-z) = j (\operatorname{arg}(1-z)- \operatorname{arg}(-1-z))$$
+
+Zde muzeme odpovedet na zadane otazky:
+
+\subsection{a) Je $Re f(z)$ omezena na $\mathbb{C} \backslash [-1,1]$?}
+Vidime, ze funkce nema zadnou realnou cast. Ale nevim, jak oduvodnit, ze je tedy neomezena (viz vysledky). Zde by to chtelo rozsirit. (TODO)
+
+\subsection{b) Je $Im f(z)$ omezena na $\mathbb{C} \backslash [-1,1]$?}
+
+Funkce $\operatorname{arg}$ znamena uhel komplexniho cisla. Jedna se tedy o rozdil dvou uhlu, z toho plyne, ze imaginarni cast je omezena.
+
+\subsection{c) Je $f$ holomorfni na $\mathbb{C} \backslash [-1,1]$?}
+
+TODO: rozsirit
+
