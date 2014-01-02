@@ -1,0 +1,135 @@
+\chapter{Holomorfni funkce}
+
+\section*{Vzorce}
+\subsection*{Derivace}
+\begin{equation}
+\label{eq:derivace}
+f'(z) = \lim_{h \to 0} \frac{f(z+h)-f(z)}{h}
+\end{equation}
+
+\subsection*{Cauchy-Riemannovy podminky}
+Jsou nutne pro existenci derivace.
+
+\begin{equation}
+\label{eq:cauchy}
+\begin{array}{ccc}
+\frac{\delta u}{\delta x} (x,y) & = & \frac{\delta v}{\delta y} (x,y)\\
+\frac{\delta u}{\delta y} (x,y) & = & -\frac{\delta v}{\delta x} (x,y)\\
+\end{array}
+\end{equation}
+$u$ je realna slozka funkce $f(z)$\\
+$v$ je imaginarni slozka funkce $f(z)$\\
+
+Parcialni (po castech) derivace (podle $x$):
+$$f'(z) = \frac{\delta u}{\delta x} (x,y) + j\frac{\delta v}{\delta x} (x,y)$$
+
+Komplexni funkce $f(z)$ ma v bode $z = x+jy$ derivaci prave tehdy, kdyz jeji slozky $u$ a $v$ splnuji Cauchy-Riemannovy podminky a maji obe \underline{totalni diferencial} v bode (x,y) (spojitost parcialnich derivaci + CR podminky $\Rightarrow$ existence derivace)
+
+\subsection*{Definice pojmu}
+\begin{itemize}
+\item Funkce f je \underline{holomorfni v otevrene mnozine} $G \subset \mathbb{C}$, jestlize ma derivaci v kazdem bode mnoziny $G$
+\item Funkce f je \underline{holomorfni v bode} $z_0$, je-li holomorfni v nejakem okoli $z_0$
+\item Holomorfni fce v otevrene mnozine $G$ se nazyva \underline{konformni}, jestlize $f'(z) \neq 0$ pro vsechna $z \in G$
+\end{itemize}
+
+\subsection*{Laplaceova rovnice}
+\begin{equation}
+\label{eq:laplace_r}
+\frac{\delta ^2 u}{\delta x^2} + \frac{\delta ^2 u}{\delta y^2} = 0
+\end{equation}
+(obdobne pro slozku $v$)
+
+Funkce splnujici laplaceovu rovnici se nazyvaji \underline{harmonicke}.
+
+Realna a imaginarni slozka holomorfni funkce je harmonicka.
+
+\subsection*{Elementarni funkce}
+\subsubsection*{Afinni funkce}
+\begin{equation}
+\label{eq:afinni}
+f(z) = az+b
+\end{equation}
+
+\subsubsection*{Linearni lomenne zobrazeni (M\" obiova transformace)}
+Jedna se o slozeni afinnich funkci - slouzi ke kruhove inverzi vuci jednotkovemu kruhu a osove soumernosti dle realne osy.
+
+Linearni lomenne zobrazeni zachovava zobecnene kruznice a body inverzni vuci nim.
+
+\begin{equation}
+\label{eq:mobiova}
+f(z) = \frac{az+b}{cz+d}
+\end{equation}
+Pozor! $ad-bc \neq 0$ a $c \neq 0$, musime overovat!
+Specialni pripady:
+
+$$f(\infty) = \frac{a}{c}\; \; \; f\left( -\frac{d}{c}\right) = \infty$$
+
+\subsubsection*{Polynomy}
+$$f(z) = a_nz^n + a_{n-1}z^{n-1}+ \dots a_0\; \; \; a_n \neq 0$$
+Zakladni veta algebry: Kazdy polynom stupne alespon jedna ma alespon jeden komplexni koren.
+
+\subsubsection*{Racionalni funkce}
+$$f(z) = \frac{p(z)}{q(z)}$$
+je holomorfni, ba konformni v $\mathbb{C}$ az na koreny polynomu $q$
+
+\subsubsection*{Exponencialni funkce}
+$$e^z = e^{x+jy} = e^x\cdot e^jy = e^x \cdot (\operatorname{cos}(y)+j\operatorname{sin}(y)) = e^{Re}\cdot (\operatorname{cos}(Im)+j\operatorname{sin}(Im))$$
+
+Komplexni exponencialni funkce neni prosta, tzn \textbf{nema inverzi!}.
+
+\underline{Eulerova identita}: 
+
+$e^{j\varphi} = \operatorname{cos}(\varphi)+j\operatorname{sin}(\varphi) \rightarrow e^{j\pi} = -1$
+
+Dulezite:  (plyne z vyse popsaneho)
+$$e^{j\pi} +1 = 0$$
+
+\subsubsection*{Logaritmus}
+Plati pro $z \neq 0$
+
+$$\operatorname{Ln}z = \{ ln|z|+j\operatorname{arg}z + 2k\pi j | k\in \mathbb{Z}\}$$
+Dulezite je si povsimnout, ze imaginarni cast funkce je periodicka! Rozlisujeme tedy:
+
+\textbf{Hlavni vetev logaritmu} pro $k = 0$:
+$$\operatorname{ln} z = ln|z|+j\operatorname{arg}z$$
+
+\textit{Poznamka: povsimnete si rozdilu pouziti velkeho a maleho "L"/"l" v nazvech logaritmu!}
+
+\subsubsection*{Goniometricke a hyperbolicke funkce}
+
+$$\operatorname{cos}z = \frac{e^{jz}+e^{-jz}}{2}$$
+$$\operatorname{sin}z = \frac{e^{jz}-e^{-jz}}{2j}$$
+$$\operatorname{cosh}z = \frac{e^{z}+e^{-z}}{2}$$
+$$\operatorname{sinh}z = \frac{e^{z}-e^{-z}}{2}$$
+
+\textbf{Osbournova pravidla:}
+Otoceni o 90$^\circ$:
+$$\operatorname{cos}(jz) = \operatorname{cosh}(z)$$
+$$\operatorname{sin}(jz) = j\operatorname{sinh}(z)$$
+
+\textbf{Uzitecne vzorce pro upravy:}
+$$\operatorname{cos}(x+jy) = \operatorname{cos}(x)\cdot \operatorname{cos}(jy)-\operatorname{sin}(x)\cdot \operatorname{sin}(jy)$$
+$$\operatorname{sin}(x+jy) = \operatorname{sin}(x)\cdot \operatorname{cos}(jy)+\operatorname{cos}(x)\cdot \operatorname{sin}(jy)$$
+
+\subsubsection*{Cyklometricke, mnohoznacne funkce}
+
+V komplexnich funkci neni jednoduche urcit napr. arcsin. Pokud mame zadano, ze mame najit:
+$\operatorname{Arcsin} z$ tak vysledek polozime roven $a$, tedy:
+$$\operatorname{Arcsin} z =a $$
+a prevedeme to tedy na reseni rovnice:
+$$\operatorname{sin} a = z$$
+A pak muzeme pouzit rozklad funkce sin na exponencialni fce a rovnici vyresit. Nutno podotknout, ze $a \in \mathbb{C}$
+
+\subsection*{Krivkovy integral}
+
+$$\int_C f(z) = f(\varphi(t))\cdot \varphi ' (t)$$
+Kde $C$ a $\varphi(t)$ oznacuji krivku.
+
+\textbf{Cauchyho veta:}
+TODO: doplnit
+
+Cauchyho vzorec:
+\begin{equation}
+\label{eq:cauchyho}
+\int_C \frac{f(z)}{(z-z_0)} = 2\pi j f(z_0)
+\end{equation}

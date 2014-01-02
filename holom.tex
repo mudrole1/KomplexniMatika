@@ -1,0 +1,132 @@
+\newpage
+
+\section{Vypoctete integraly podle zadanych krivek}
+\subsection{a) $\int_C Re(z), \; C=\{z \in \mathbb{C}, |z-z_0|=r\}$, kladne orientovana}
+
+Takto zadana krivka je kruh, muzeme ho tedy prepsat do jineho tvaru a to:
+$$\varphi(t) = z_0 + r\cdot e^{jt} = z_0 + r(\operatorname{cos}(t)+j\operatorname{sin}(t))$$
+pro $t \in (0;2\pi)$
+
+Kdyz pocitame krivkovy integral, tak posupujeme tak, ze krivku $\varphi(t)$ dosadime za promenou $z$ v integralu a nasobime derivaci krivky podle $t$, neboli:
+
+$$\int_C f(z) = f(\varphi(t))\cdot \varphi ' (t)$$
+
+Tedy v nasem pripade: (pozor, funkce je jen realna cast, tedy dosadim jen realnou cast krivky, tedy se mi hodi, ze jsem si to rozlozila na goniometricky tvar a navic, i bod $z_0$ ma realnou a imaginarni cast):
+$$\int_C Re(z) = \int_0^{2\pi} Re(z_0+r(\operatorname{cos}(t)+j\operatorname{sin}(t)))\cdot rje^{jt} dt = \int_0^{2\pi} (x_0+r\operatorname{cos}(t)) \cdot rje^{jt} dt =$$
+Zavorku roznasobim:
+$$=\int_0^{2\pi} x_0rje^{jt} + r\operatorname{cos}t\cdot rje^{jt} dt=$$
+A ted to roztrhnu na dva integraly, abych je vubec mohla spocitat:
+$$=\int_0^{2\pi}x_0rje^{jt} dt + \int_0^{2\pi} r^2\operatorname{cos}tje^{jt} dt= $$
+V prvnim integralu je pouze funkce $e^{jt}$ zavisla na promene $t$, podle ktere integrujeme. Tedy muzeme vse ostatni vytknout pred integral. V druhem mame funkci $\operatorname{cos}t$ a $e^{jt}$, tedy neumime zintegrovat dve funkce naraz. Tady muzeme zkusit pouzit trik, kdy fci rozepiseme: $e^{jt} = \operatorname{cos}t + j\operatorname{sin}t$. Tedy vse dohromady:
+$$=x_0 rj\int_0^{2\pi}e^{jt} dt + r^2 j\int_0^{2\pi} \operatorname{cos}t\cdot (\operatorname{cos}t + j\operatorname{sin}t)dt = $$
+Prvni integral uz muzeme zintegrovat (je to klasicke integrovani, co se delalo v prvaku. Je dobre mit na pameti nejake zakladni funkce. Napr fce $e^t$ je po integrovani zase $e^t$, tady je problem ale, ze v exponentu je vice veci, musime udelat substituci:
+$$jt = u$$
+$$jdt = du$$
+$$dt = \frac{du}{j}$$
+(a musime take do substituce dosadit meze a prepocitat)
+Druhy integral pak roznasobime zavorku:
+$$ = x_0rj \int_0^{2\pi j} e^u \frac{du}{j}+ r^2 j\int_0^{2\pi} \operatorname{cos}^2t + j\operatorname{cos}t\operatorname{sin}tdt = $$
+Prvni integral zintegrujeme a druhy muzeme rozseknout opet na dva:
+$$= x_0rj \frac{1}{j} \left[ e^u\right]_0^{2\pi j} + r^2 j\int_0^{2\pi} \operatorname{cos}^2t dt + r^2 j\int_0^{2\pi} j\operatorname{cos}t \operatorname{sin}tdt = $$
+Do prvniho clenu dosadime meze (nejprve horni minus dolni), druhy integral zatim preskocim, treti se resi opet substituci (typicky priklad na kombinaci kosinu a sinu!), tedy napr:
+$$\operatorname{sin}t = u$$
+$$\operatorname{cos}t dt = du$$
+$$dt = \frac{du}{\operatorname{cos}t}$$
+A prepocet mezi:
+$$\operatorname{sin}(0) = 0$$
+$$\operatorname{sin}(2\pi) = 0$$
+Ten posledni krok (deleni) matematici nemaji moc radi, tak si ho napiste nekam bokem, a pak zacmarejte, ale jinak vas k vysledku dobre navede. Tedy opet vse dohromady:
+$$ = x_0 r (e^{2\pi j} - e^0) + r^2 j\int_0^{2\pi} \operatorname{cos}^2t dt + r^2 j^2\int_0^{0} u du = $$
+V prnim clenu vidime vztah $e^{2\pi j}$, coz nam muze pripominat \textit{eulerovu identitu} (viz vypsane vzorce), jen to musime malicko upravit. Figl je zalozen na tom, ze nasobeni exponentu je mocneni zakladu. V tretim clenu se zbavime $j^2 = -1$ a taky zintegrujeme, vse dohromady:
+$$ = x_0 r ( \left(e^{\pi j}\right)^2 - 1) + r^2 j\int_0^{2\pi} \operatorname{cos}^2t dt - r^2 \left[ \frac{u^2}{2}\right]_0^0 = $$
+V prvnim clenu uz vidime eulerovu identitu, tedy vime, ze $e^{\pi j} = -1$, do tretiho dosadime meze:
+$$ = x_0 r ( (-1)^2 -1 )+ r^2 j\int_0^{2\pi} \operatorname{cos}^2t dt - r^2 \left[ 0 -0\right] = $$
+Pozoruji, ze v prvnim clenu v zavorce vznikne nula, i v tretim clenu je v zavorce nula. Tedy prvni i treti clen jsou nulove a zbyde pouze druhy clen:
+$$= r^2 j\int_0^{2\pi} \operatorname{cos}^2t dt = $$
+Integrovat $\operatorname{cos}^2t $ neni snadne. Nelze to resit ani subsitutci (po derivaci bychom dostali sinus, ktery v integralu neni) a ani metodou perpartes (opet bychom si tam zanesli sinus). Muzeme to ale resit dvema rozklady. Bud mame nekde na tahaku vypsane uzitecne vzorce pro praci s goniometrickym funkcemi, tedy vime, ze $\operatorname{cos}^2t = \frac{1-\operatorname{cos}(2t)}{2}$ a nebo si to rozlozime na exponencialni funkce. Ukazu druhy postup:
+$$ = r^2 j \int_0^{2\pi} \left( \frac{e^{jt} + e^{-jt}}{2} \right) ^2 dt = $$
+To umocnime, pozor! Citatel musime mocnit podle vzorce $(a+b)^2 = a^2+2ab+b^2$ a rovnou roztrhnu na tri integraly:
+$$ = r^2 j \frac{1}{4} \int_0^{2\pi} e^{j2t} dt + r^2 j \frac{1}{4} \int_0^{2\pi} 2e^{jt}e^{-jt} dt + r^2 j \frac{1}{4} \int_0^{2\pi} e^{-j2t} dt =$$
+Exponencialni funkci umime pekne itegrovat s vyuzitim substituce, tedy pro prvni integral:
+$$j2t = u$$
+$$j2 dt = du$$
+$$dt = \frac{du}{2j}$$
+Pro treti integral:
+$$-j2t = v$$
+$$-j2 dt = dv$$
+$$dt = -\frac{dv}{2j}$$
+Prepoctu i meze a dosadim. Navic v druhem integralu prevedu nasobeni zakladu exponencilani fce na soucet exponentu.
+$$ =  r^2 j \frac{1}{4} \int_0^{4\pi j} e^u \frac{du}{2j} + r^2 j \frac{1}{2} \int_0^{2\pi} e^{jt-jt} dt +  r^2 j \frac{1}{4} \int_0^{-4\pi j} e^v \left( -\frac{dv}{2j} \right) = $$
+jmenovatele $2j$ u prvniho a tretiho integralu muzu vytknout a jinak zintegruji, funkce $e^{neco}$ zustane opet $e^{neco}$, tedy: (pozor, ze se pred tretim integralem zmenilo znamenko na minus, protoze jsem ho tam vyktla ze zavorky)
+$$ = r^2 j \frac{1}{4} \frac{1}{2j} \left[ e^u \right]_0^{4\pi j} +  r^2 j \frac{1}{2} \int_0^{2\pi} e^0 dt - r^2 j \frac{1}{4} \frac{1}{2j} \left[ e^u \right]_0^{-4\pi j} = $$
+Pro 1. a 3. integral pokratim a dosadim meze, opet vidim, ze to pujde na eulerovu identitu, tak uz to zacnu smerovat na trik jako pred chvili. U druheho vidim, ze $e^0 =1$
+$$ = r^2 \frac{1}{8} \left( (e^{\pi j})^4 - e^0 \right) +  r^2 j \frac{1}{2} \int_0^{2\pi} 1 dt - r^2 \frac{1}{8} \left( (e^{\pi j})^{-4} - e^0 \right) =$$
+Cely prvni clen bude nulovy, protoze $e^{\pi j} = -1$, a $(-1)^4 = 1$, tedy se odecte s $e^0 = 1$. Treti clen jeste pro nazornost rozepisu, ale uz take pouziji eulerovu identitu:
+$$ = 0 +  r^2 j \frac{1}{2} \int_0^{2\pi} 1 dt - r^2 \frac{1}{8} \left( \frac{1}{(-1)^4} - 1 \right)  = $$
+Pozorujeme, ze i treti integral bude nulovy. Zustal jen prostredni, kdy mohu integrovat:
+$$ = r^2 j \frac{1}{2} \left[ t \right]_0^{2\pi} = r^2 j \frac{1}{2} (2\pi - 0) = r^2 j \pi$$
+
+Uff a mam vysledek :) Ve skutecnosti to neni tak dlouhe, jen ja to tu rozpisuji hodne dopodrobna. Na papire to muzete mit klidne i na 5 radek jako ja ve svem vypoctu :)
+
+\newpage
+
+\section{Pro ktera $z \in \mathbb{C}$ plati, ze}
+\subsection{a) $\int_0^1 \operatorname{sin}(tz) dt = 0$}
+Integral muzeme vyresit s vyuzitim substituce:
+$$tz = u$$
+$$z dt = du$$
+$$dt = \frac{du}{z}$$
++ prepocteme meze:
+$$0\cdot z = 0$$
+$$1\cdot z = z$$
+Tedy:
+$$\int_0^1 \operatorname{sin}(tz) dt = \int_0^z \operatorname{sin}(u) \frac{1}{z} du = \left[ \frac{-\operatorname{cos}(u)}{z} \right]_0^z = \frac{-\operatorname{cos}(z)}{z} -\left( \frac{-\operatorname{cos}(0)}{z} \right)= \frac{-\operatorname{cos}(z)}{z} + \frac{1}{z} = \frac{-\operatorname{cos}z+1}{z}$$
+A takto upravena leva strana se ma tedy rovnat nule, tedy resime:
+$$\frac{-\operatorname{cos}z+1}{z} = 0$$
+Aby zlomek byl nula, musi byt jedine citatel nulovy, jmenovatel to neovlivni. Tedy resime:
+$$-\operatorname{cos}z+1 = 0$$
+$$-\operatorname{cos}z = -1$$
+$$\operatorname{cos}z = 1$$
+
+Funkce kosinus je rovna hodnota 1 pro hodnoty $z = 0, 2\pi, 4\pi \dots$, tedy to muzeme zapsat jako:
+$$z = 2k\pi,\; k \in \mathbb{Z}$$
+
+\subsection{b) komplikovane}
+
+\newpage
+
+\section{Necht $C$ je jednoducha uzavrena kladne orientovana krivka neprochazejici bodem $z_0 \in \mathbb{C}$. Zjistete, jakych moznych hodnot muze nabyvat integral $\int_c (z-z_0)^n$ v zavislosti na $n \in \mathbb{Z}$ a poloze bodu $z_0$ vuci krivce.}
+
+Pro vyjadreni v zavislosti na parametru $n$ pouziji Cauchyho vzorec \ref{eq:cauchyho}:
+$$\int_C \frac{f(z)}{(z-z_0)} = 2\pi j f(z_0)$$
+
+Abych ho mohla pouzit spravne, musim si zadanou funkci ale prevest do stejneho tvaru, tedy jen vytknu jeden clen do jmenovatele a exponent se mi tedy zvetsi:
+
+$$\int_c (z-z_0)^n = \int_C \frac{(z-z_0)^{n+1}}{(z-z_0)}$$
+
+Budeme vychazet z Cauchyho vzorce, nutno podotknout, ze novou funkci $f(z) = (z-z_0)^{n+1}$. Muzu tedy ted vyresit 2 pripady:
+\begin{itemize}
+\item $n+1 \neq 0$, tedy $n < -1$, z vzorce plyne, ze $2\pi j (z_0 - z_0)^{n+1}$ (dosadila jsem hodnotu $z_0$ za promenou $z$ do funkce $f(z)$. Tedy vidim, ze se to rovna nule. Tedy  $\int_c (z-z_0)^n = 0$ pro $n \neq -1$
+\item $n+1 = 0$, tedy $n = -1$, zde se funkce $f(z)$ zjednodusi na $f(z)=(z-z_0)^0 = 1$, neni zde zadna promena $z$, kam bychom dosadili, tedy s vyuziti cauchyho vzorce nam vyjde pouze $2\pi j$, tedy shrnuti:
+ $\int_c (z-z_0)^n = 2\pi j$ pro $n= -1$
+\end{itemize}
+
+Zhlediska polohy bodu $z_0$ rozeznavame dva pripady:
+\begin{itemize}
+\item $z_0$ lezi vne krivky - z Cauchyho vety plyne, ze integral je nulovy. Tato vlastnost je dulezita! Mit ji na pameti/ tahaku! Ale pozor, jen pro pripad, kdy $n \neq 0$! To je specialni pripad.
+\item $z_0$ lezi uvnitr krivky - zalezi na hodnote $n$, viz reseni vyse. 
+\end{itemize}
+
+\newpage
+
+\section{Necht $C$ je uzavrena jednoducha kladne orientovana krivka. Vypoctete hodnoty integralu $\int_C \frac{1}{z_2+9}$}
+
+Funkci musime nejprve rozlozit, abychom videli koreny, tedy: (koreny najdeme polozenim jmenovatele rovno nule)
+$$\int_C \frac{1}{(z+3j)(z-3j)}$$
+Vidime, ze funkce ma dva poly, musime tedy resit 4 pripady:
+\begin{enumerate}
+\item Krivka $C$ ma bod $z_1=3j$ uvnitr
+\item Krivka $C$ ma bod $z_2=-3j$ uvnitr
+\item Krivka $C$ nema ani jeden z polu uvnitr
+\item Krivka $C$ ma oba poly uvnitr
+\end{enumerate}
